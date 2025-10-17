@@ -1,16 +1,41 @@
 ---
-import '../styles/global.css';
-const { content } = Astro.props;
+import '@/styles/global.css';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const {meta, lang} = Astro.props;
+
+const title = meta?.title ?? 'POI Research';
+const description = meta?.description ?? 'POI Research delivers innovative sports protection equipment. Engineered protection through Protection, Innovation, and Passion for motorcycle, skiing, and extreme sports athletes.';
+const keywords = meta?.keywords ?? 'sports protection, motorcycle gear, skiing equipment, protective gear, POI Research';
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+  <meta name="description"
+        content={description}/>
+  <meta name="keywords" content={keywords}/>
+
+  <meta property="og:title" content={title}/>
+  <meta property="og:description"
+        content={description}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content=""/>
+</head>
+
+<body lang={lang}>
+  <div class="min-h-screen">
+    <Header client:idle />
+    <main>
+      <slot></slot>
+    </main>
+    <Footer client:idle />
+  </div>
+</body>
 </html>
+
