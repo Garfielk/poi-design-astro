@@ -3,40 +3,47 @@ import ceCertificate from "@/assets/certificates/ce-certificate.jpg";
 import fccCertificate from "@/assets/certificates/fcc-certificate.jpg";
 import euDeclaration from "@/assets/certificates/eu-declaration.jpg";
 import koreanCert from "@/assets/certificates/korean-cert.jpg";
+import type { Language } from "@/i18n/config";
+import { getTranslations } from "@/i18n/utils";
 
-const certificates = [
-  {
-    id: 1,
-    image: koreanCert.src,
-    title: "Korean Certification",
-    rotation: -3,
-    zIndex: 1,
-  },
-  {
-    id: 2,
-    image: euDeclaration.src,
-    title: "EU Declaration",
-    rotation: -1,
-    zIndex: 2,
-  },
-  {
-    id: 3,
-    image: fccCertificate.src,
-    title: "FCC Certificate",
-    rotation: 1,
-    zIndex: 3,
-  },
-  {
-    id: 4,
-    image: ceCertificate.src,
-    title: "CE Certificate",
-    rotation: 3,
-    zIndex: 4,
-  },
-];
+interface CertificatesProps {
+  lang: Language;
+}
 
-const Certificates = () => {
+const Certificates = ({ lang }: CertificatesProps) => {
+  const t = getTranslations(lang);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  const certificates = [
+    {
+      id: 1,
+      image: koreanCert.src,
+      title: t.home.certificates.items.korean,
+      rotation: -3,
+      zIndex: 1,
+    },
+    {
+      id: 2,
+      image: euDeclaration.src,
+      title: t.home.certificates.items.eu,
+      rotation: -1,
+      zIndex: 2,
+    },
+    {
+      id: 3,
+      image: fccCertificate.src,
+      title: t.home.certificates.items.fcc,
+      rotation: 1,
+      zIndex: 3,
+    },
+    {
+      id: 4,
+      image: ceCertificate.src,
+      title: t.home.certificates.items.ce,
+      rotation: 3,
+      zIndex: 4,
+    },
+  ];
 
   // Calculate positions dynamically based on number of certificates
   const certWidth = 300;
@@ -50,10 +57,10 @@ const Certificates = () => {
         {/* Section Header */}
         <div className="text-center mb-10 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            CE Certificate
+            {t.home.certificates.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Certified quality and safety standards
+            {t.home.certificates.subtitle}
           </p>
         </div>
 
@@ -152,7 +159,7 @@ const Certificates = () => {
         {/* Additional Info */}
         <div className="text-center mt-10 animate-fade-in-up">
           <p className="text-muted-foreground">
-            All products meet international safety and quality standards
+            {t.home.certificates.additionalInfo}
           </p>
         </div>
       </div>

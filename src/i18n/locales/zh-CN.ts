@@ -1,0 +1,78 @@
+export default {
+  nav: {
+    home: '首页',
+    company: '公司',
+    products: '产品',
+    events: '活动',
+    contactUs: '联系我们',
+  },
+  home: {
+    hero: {
+      title1: '专为',
+      title2: '极限运动',
+      title3: '而设计',
+      protection: '防护',
+      innovate: '创新',
+      passion: '热情',
+      imageAlt: {
+        protector: 'POI 运动防护装备',
+        motorcycle: '摩托车防护',
+        skiing: '滑雪防护',
+        mountainBike: '山地自行车防护',
+      },
+    },
+    productShowcase: {
+      title: '公司',
+      productName: '剪切稀化防护装备',
+      productSubtitle: '配备防护装置',
+      description: 'RE ZINGY 专有技术通过分子键在冲击下的特性保护骑手，通过滑动对抗冲击行为释放能量，这种行为被称为剪切稀化。超分子随后立即重新结合。重置为 Zns。',
+      learnMore: '了解更多',
+    },
+    categoryGrid: {
+      title: '关于',
+      categories: {
+        motorcycle: '摩托车',
+        mountainBike: '山地自行车',
+        skiing: '滑雪',
+        sports: '运动',
+      },
+      label: 'POI',
+      explore: '探索',
+    },
+    partnerBrands: {
+      title: '合作品牌',
+      subtitle: 'Poi 设计受到世界顶级品牌的信赖',
+    },
+    laboratory: {
+      title: '实验室',
+      description: '产品测试数据提供最准确的性能量化。',
+      explore: '探索',
+      imageAlt: '实验室测试设备',
+    },
+    certificates: {
+      title: 'CE 认证',
+      subtitle: '认证的质量和安全标准',
+      additionalInfo: '所有产品均符合国际安全和质量标准',
+      items: {
+        korean: '韩国认证',
+        eu: '欧盟声明',
+        fcc: 'FCC 认证',
+        ce: 'CE 认证',
+      },
+    },
+  },
+  footer: {
+    brandDescription: '为运动员打造的专业防护装备。以激情驱动创新。',
+    quickLinks: '快速链接',
+    contactUs: '联系我们',
+    email: 'info@poiresearch.com',
+    phone: '+86 532 66748597',
+    phoneSecondary: '+86 19920826825',
+    address: '中国山东省青岛市城阳区',
+    addressLine2: '夏庄街道西元路6号楼',
+    addressLine3: '2层',
+    copyright: '© 2024 POI Research. 保留所有权利。',
+    privacyPolicy: '隐私政策',
+    termsOfService: '服务条款',
+  },
+} as const;

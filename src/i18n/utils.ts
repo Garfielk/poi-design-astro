@@ -1,26 +1,7 @@
-// src/i18n/utils.ts
-import { translations, defaultLang, type SupportedLanguage, type TranslationDict } from './config'
-
-// 创建翻译函数
-export function useTranslations(lang: SupportedLanguage) {
-  return function t(key: string, ...args: string[]): string {
-    // Get translation text
-    const translation = (translations[lang] as TranslationDict)[key] || (translations[defaultLang] as TranslationDict)[key] || key
-
-    // Replace variables
-    if (args.length > 0) {
-      return args.reduce((text, arg, index) => {
-        return text.replace(`$${index + 1}`, arg)
-      }, translation)
-    }
-
-    return translation
-  }
-}
-
+import {defaultLang, type Language, translations} from './config.ts'
 export function getAlternatePath(pathname: string, targetLang: string) {
   const defaultLocale = 'en';
-  const locales = ['en', 'zh-CN', 'ja', 'fr'];
+  const locales = ['en', 'zh-CN'];
 
   // 从路径提取现有语言前缀
   const currentPrefix = locales.find((l) =>
@@ -34,4 +15,19 @@ export function getAlternatePath(pathname: string, targetLang: string) {
 
   if (targetLang === defaultLocale) return cleanPath || '/';
   return `/${targetLang}${cleanPath}`;
+}
+
+// 获取翻译文本
+export function getTranslations(lang: Language = defaultLang) {
+  return translations[lang] || translations[defaultLang];
+}
+
+// 类型安全的翻译函数
+export function useTranslations(lang: Language = defaultLang) {
+  const t = getTranslations(lang);
+
+  return {
+    t,
+    lang,
+  };
 }

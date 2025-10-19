@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type {Language} from "@/i18n/config.ts";
+import {getTranslations} from "@/i18n/utils.ts";
 
-const Header = () => {
+interface Props {
+  lang: Language;
+}
+
+const Header = ({ lang }: Props) => {
+  const t = getTranslations(lang);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -32,11 +39,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: "HOME", href: "/" },
-    { label: "COMPANY", href: "/company" },
-    { label: "PRODUCTS", href: "/products" },
-    { label: "EVENTS", href: "/events" },
-    { label: "CONTACT US", href: "/contact" },
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.company, href: "/company" },
+    { label: t.nav.products, href: "/products" },
+    { label: t.nav.events, href: "/events" },
+    { label: t.nav.contactUs, href: "/contact" },
   ];
 
   return (

@@ -2,37 +2,45 @@ import motorcycleImg from "@/assets/motorcycle.jpg";
 import mountainBikeImg from "@/assets/mountain-bike.jpg";
 import skiingImg from "@/assets/skiing.jpg";
 import sportsImg from "@/assets/sports.jpg";
+import type { Language } from "@/i18n/config";
+import { getTranslations } from "@/i18n/utils";
 
-const categories = [
-  {
-    title: "Motorcycle",
-    image: motorcycleImg.src,
-    label: "POI",
-  },
-  {
-    title: "Mountain Bike",
-    image: mountainBikeImg.src,
-    label: "POI",
-  },
-  {
-    title: "Skiing",
-    image: skiingImg.src,
-    label: "POI",
-  },
-  {
-    title: "Sports",
-    image: sportsImg.src,
-    label: "POI",
-  },
-];
+interface CategoryGridProps {
+  lang: Language;
+}
 
-const CategoryGrid = () => {
+const CategoryGrid = ({ lang }: CategoryGridProps) => {
+  const t = getTranslations(lang);
+
+  const categories = [
+    {
+      title: t.home.categoryGrid.categories.motorcycle,
+      image: motorcycleImg.src,
+      label: t.home.categoryGrid.label,
+    },
+    {
+      title: t.home.categoryGrid.categories.mountainBike,
+      image: mountainBikeImg.src,
+      label: t.home.categoryGrid.label,
+    },
+    {
+      title: t.home.categoryGrid.categories.skiing,
+      image: skiingImg.src,
+      label: t.home.categoryGrid.label,
+    },
+    {
+      title: t.home.categoryGrid.categories.sports,
+      image: sportsImg.src,
+      label: t.home.categoryGrid.label,
+    },
+  ];
+
   return (
     <section id="products" className="py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">about</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">{t.home.categoryGrid.title}</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </div>
 
@@ -61,7 +69,7 @@ const CategoryGrid = () => {
 
                 {/* Arrow Indicator */}
                 <div className="mt-4 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-sm">Explore</span>
+                  <span className="text-sm">{t.home.categoryGrid.explore}</span>
                   <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>

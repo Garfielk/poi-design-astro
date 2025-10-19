@@ -1,22 +1,18 @@
-import en from './locales/en.json'
-import zh from './locales/zh.json'
+import en from './locales/en.ts'
+import zhCN from './locales/zh-CN.ts'
 
 export const languages = {
   en: 'English',
-  zh: '中文',
-}
+  'zh-CN': '简体中文',
+} as const
 
-export const defaultLang = 'en'
+export type Language = keyof typeof languages;
 
-export type TranslationDict = {
-  [key: string]: string
-}
+export const defaultLang: Language = 'en';
 
-// 支持语言的类型
-export type SupportedLanguage = keyof typeof translations
-
-// Translation dictionary
-export const translations: Record<string, TranslationDict> = {
+export const translations = {
   en,
-  zh,
-}
+  'zh-CN': zhCN,
+} as const
+
+export type TranslationKeys = typeof en;

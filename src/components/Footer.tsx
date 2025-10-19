@@ -1,12 +1,20 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import type { Language } from "@/i18n/config";
+import { getTranslations } from "@/i18n/utils";
 
-const Footer = () => {
+interface FooterProps {
+  lang: Language;
+}
+
+const Footer = ({ lang }: FooterProps) => {
+  const t = getTranslations(lang);
+
   const navLinks = [
-    { label: "HOME", href: "#home" },
-    { label: "COMPANY", href: "#company" },
-    { label: "EVENTS", href: "#events" },
-    { label: "PRODUCTS", href: "#products" },
-    { label: "CONTACT US", href: "#contact" },
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.company, href: "#company" },
+    { label: t.nav.events, href: "#events" },
+    { label: t.nav.products, href: "#products" },
+    { label: t.nav.contactUs, href: "#contact" },
   ];
 
   return (
@@ -22,13 +30,13 @@ const Footer = () => {
               <span className="text-sm text-white/70">RESEARCH</span>
             </div>
             <p className="text-sm text-white/80 leading-relaxed">
-              Engineered protection for athletes. Innovation through passion.
+              {t.footer.brandDescription}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">{t.footer.quickLinks}</h3>
             <nav className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <a
@@ -44,22 +52,22 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">CONTACT US</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">{t.footer.contactUs}</h3>
             <div className="space-y-3">
-              <a href="mailto:info@poiresearch.com" className="flex items-start gap-3 text-sm hover:text-accent transition-colors group">
+              <a href={`mailto:${t.footer.email}`} className="flex items-start gap-3 text-sm hover:text-accent transition-colors group">
                 <Mail className="h-5 w-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <span>info@poiresearch.com</span>
+                <span>{t.footer.email}</span>
               </a>
-              <a href="tel:+8653266748597" className="flex items-start gap-3 text-sm hover:text-accent transition-colors group">
+              <a href={`tel:${t.footer.phone.replace(/\s/g, '')}`} className="flex items-start gap-3 text-sm hover:text-accent transition-colors group">
                 <Phone className="h-5 w-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <span>+86 532 66748597<br />+86 19920826825</span>
+                <span>{t.footer.phone}<br />{t.footer.phoneSecondary}</span>
               </a>
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <span>
-                  2/F BLOCK NO.6, XIYUAN ROAD,<br />
-                  XIFU'AN SUBDISTRICT, CHENGYANG DISTRICT,<br />
-                  QINGDAO, SHANDONG, CHINA
+                  {t.footer.address}<br />
+                  {t.footer.addressLine2}<br />
+                  {t.footer.addressLine3}
                 </span>
               </div>
             </div>
@@ -69,10 +77,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/70">
-            <p>© 2024 POI Research. All rights reserved.</p>
+            <p>{t.footer.copyright}</p>
             <div className="flex gap-6">
-              <a href="#privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
-              <a href="#terms" className="hover:text-accent transition-colors">Terms of Service</a>
+              <a href="#privacy" className="hover:text-accent transition-colors">{t.footer.privacyPolicy}</a>
+              <a href="#terms" className="hover:text-accent transition-colors">{t.footer.termsOfService}</a>
             </div>
           </div>
         </div>

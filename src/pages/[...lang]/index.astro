@@ -1,7 +1,8 @@
 ---
 import MainLayout from '@/layouts/main.astro';
 import IndexPage from "@/components/index/Index.tsx"
-import { getAlternatePath } from '@/i18n/utils';
+import { getAlternatePath } from '@/i18n/utils.ts';
+import type {Language} from "@/i18n/config.ts";
 
 export const prerender = true;
 
@@ -19,10 +20,10 @@ const translations = {
 
 // 生成静态路径（SSG 多语言）
 export async function getStaticPaths() {
-	return [
-		{ params: { lang: undefined }, props: { lang: 'en' } },
-		{ params: { lang: 'zh-CN' }, props: { lang: 'zh-CN' } },
-	];
+  return [
+    { params: { lang: undefined }, props: { lang: 'en' as Language } },
+    { params: { lang: 'zh-CN' }, props: { lang: 'zh-CN' as Language } },
+  ];
 }
 
 const { lang } = Astro.props as {lang: 'en' | 'zh-CN'};
@@ -42,5 +43,5 @@ console.log('完整 URL:', fullUrl);
 ---
 
 <MainLayout lang={lang}>
-  <IndexPage client:load />
+  <IndexPage lang={lang} client:load />
 </MainLayout>

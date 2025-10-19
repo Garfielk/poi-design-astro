@@ -10,17 +10,24 @@ import heroProtector from "@/assets/hero-protector.jpg";
 import motorcycle from "@/assets/motorcycle.jpg";
 import skiing from "@/assets/skiing.jpg";
 import mountainBike from "@/assets/mountain-bike.jpg";
+import type { Language } from "@/i18n/config";
+import { getTranslations } from "@/i18n/utils";
 
-const carouselImages = [
-  { src: heroProtector.src, alt: "POI Sports Protector" },
-  { src: motorcycle.src, alt: "Motorcycle Protection" },
-  { src: skiing.src, alt: "Skiing Protection" },
-  { src: mountainBike.src, alt: "Mountain Bike Protection" },
-];
+interface HeroProps {
+  lang: Language;
+}
 
-const Hero = memo(() => {
+const Hero = memo(({ lang }: HeroProps) => {
+  const t = getTranslations(lang);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+
+  const carouselImages = [
+    { src: heroProtector.src, alt: t.home.hero.imageAlt.protector },
+    { src: motorcycle.src, alt: t.home.hero.imageAlt.motorcycle },
+    { src: skiing.src, alt: t.home.hero.imageAlt.skiing },
+    { src: mountainBike.src, alt: t.home.hero.imageAlt.mountainBike },
+  ];
 
   useEffect(() => {
     if (!api) return;
@@ -31,7 +38,6 @@ const Hero = memo(() => {
       setCurrent(api.selectedScrollSnap());
     };
 
-
     api.on("select", onSelect);
 
     return () => {
@@ -41,36 +47,30 @@ const Hero = memo(() => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Grid Pattern Overlay */}
-      {/*<div className="absolute inset-0 opacity-[0.03]" style={{*/}
-      {/*  backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,*/}
-      {/*  backgroundSize: '50px 50px'*/}
-      {/*}} />*/}
-
       <div className="relative w-full min-h-screen flex items-center">
         <div className="grid lg:grid-cols-[45%_55%] w-full items-center">
           {/* Left Content */}
           <div className="container mx-auto px-4 lg:px-8 py-24 lg:py-0 space-y-8 z-10">
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-              <span className="block text-foreground">Engineered</span>
-              <span className="block text-foreground">for the</span>
+              <span className="block text-foreground">{t.home.hero.title1}</span>
+              <span className="block text-foreground">{t.home.hero.title2}</span>
               <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Impact.
+                {t.home.hero.title3}
               </span>
             </h1>
 
             <div className="space-y-4 text-lg lg:text-xl text-muted-foreground">
               <div className="flex items-center gap-3 group cursor-default">
                 <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
-                <span className="group-hover:text-accent transition-colors">Protection</span>
+                <span className="group-hover:text-accent transition-colors">{t.home.hero.protection}</span>
               </div>
               <div className="flex items-center gap-3 group cursor-default">
                 <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
-                <span className="group-hover:text-accent transition-colors">Innovate</span>
+                <span className="group-hover:text-accent transition-colors">{t.home.hero.innovate}</span>
               </div>
               <div className="flex items-center gap-3 group cursor-default">
                 <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
-                <span className="group-hover:text-accent transition-colors">Passion</span>
+                <span className="group-hover:text-accent transition-colors">{t.home.hero.passion}</span>
               </div>
             </div>
           </div>

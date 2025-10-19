@@ -9,6 +9,8 @@ import heldLogo from "@/assets/brands/held-logo.png";
 import rukkaLogo from "@/assets/brands/rukka-logo.png";
 import spidiLogo from "@/assets/brands/spidi-logo.png";
 import {memo} from 'react'
+import type { Language } from "@/i18n/config";
+import { getTranslations } from "@/i18n/utils";
 
 const brands = [
   { name: "KENVY", logo: kenvyLogo.src },
@@ -36,17 +38,23 @@ const BrandCard = memo(({ brand }: { brand: { name: string; logo: string } }) =>
 
 BrandCard.displayName = "BrandCard";
 
-const PartnerBrands = () => {
+interface PartnerBrandsProps {
+  lang: Language;
+}
+
+const PartnerBrands = ({ lang }: PartnerBrandsProps) => {
+  const t = getTranslations(lang);
+
   return (
     <section className="py-20 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Partner Brands
+            {t.home.partnerBrands.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Poi designs is trusted by the world's best brands
+            {t.home.partnerBrands.subtitle}
           </p>
         </div>
 

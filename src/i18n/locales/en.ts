@@ -1,0 +1,78 @@
+export default {
+  nav: {
+    home: 'HOME',
+    company: 'COMPANY',
+    products: 'PRODUCTS',
+    events: 'EVENTS',
+    contactUs: 'CONTACT US',
+  },
+  home: {
+    hero: {
+      title1: 'Engineered',
+      title2: 'for the',
+      title3: 'Impact.',
+      protection: 'Protection',
+      innovate: 'Innovate',
+      passion: 'Passion',
+      imageAlt: {
+        protector: 'POI Sports Protector',
+        motorcycle: 'Motorcycle Protection',
+        skiing: 'Skiing Protection',
+        mountainBike: 'Mountain Bike Protection',
+      },
+    },
+    productShowcase: {
+      title: 'Company',
+      productName: 'SHEER THINNING PROTECTOR',
+      productSubtitle: 'WITH PROTECTOR',
+      description: 'RE ZINGY proprietary technology protects the riders through the features of the molecular bonds under impact, releasing energy through sliding against the impact behavior knows as sheer thinning. The Supermolecule then recombine instantly. Re-setting to Zns.',
+      learnMore: 'Learn More',
+    },
+    categoryGrid: {
+      title: 'about',
+      categories: {
+        motorcycle: 'Motorcycle',
+        mountainBike: 'Mountain Bike',
+        skiing: 'Skiing',
+        sports: 'Sports',
+      },
+      label: 'POI',
+      explore: 'Explore',
+    },
+    partnerBrands: {
+      title: 'Partner Brands',
+      subtitle: 'Poi designs is trusted by the world\'s best brands',
+    },
+    laboratory: {
+      title: 'LABORATORY',
+      description: 'Product test data provides the most accurate quantification of performance.',
+      explore: 'Explore',
+      imageAlt: 'Laboratory Testing Equipment',
+    },
+    certificates: {
+      title: 'CE Certificate',
+      subtitle: 'Certified quality and safety standards',
+      additionalInfo: 'All products meet international safety and quality standards',
+      items: {
+        korean: 'Korean Certification',
+        eu: 'EU Declaration',
+        fcc: 'FCC Certificate',
+        ce: 'CE Certificate',
+      },
+    },
+  },
+  footer: {
+    brandDescription: 'Engineered protection for athletes. Innovation through passion.',
+    quickLinks: 'Quick Links',
+    contactUs: 'CONTACT US',
+    email: 'info@poiresearch.com',
+    phone: '+86 532 66748597',
+    phoneSecondary: '+86 19920826825',
+    address: '2/F BLOCK NO.6, XIYUAN ROAD,',
+    addressLine2: 'XIFU\'AN SUBDISTRICT, CHENGYANG DISTRICT,',
+    addressLine3: 'QINGDAO, SHANDONG, CHINA',
+    copyright: '© 2024 POI Research. All rights reserved.',
+    privacyPolicy: 'Privacy Policy',
+    termsOfService: 'Terms of Service',
+  },
+} as const;
