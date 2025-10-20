@@ -75,4 +75,35 @@ export default {
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
   },
+  company: {
+    hero: {
+      title: 'Pioneer of manufacture.',
+      subtitle: 'Experienced in garment industry since 1995.',
+    },
+    about: {
+      title: 'ABOUT POI DESIGNS',
+      paragraph1: 'Specializing in manufacturing a comprehensive range ofsports protective equipment and luggage products,ourcompany distinguishes globally with consistently acclaimedquality.',
+      paragraph2: 'Encompassing garments, bags,gloves,and safety gear,our portfolio is underscored by a vigilant approach to "Quality First, Reputation First, and Efficiency",we deliver authoritativesaves to domestic and international clients.',
+      paragraph3: 'Adhering to standardized,professional initiative,andharmain operational principles,we commit ourselves to an ethos of "Technological innovation,standard quality,excellent professionalism,service-oriented commitment,and pragmatic advancement",we relentlessly pursue maximumin partner benefits while providing unparalleled assurance.',
+    },
+    advantages: {
+      title: 'OUR ADVANTAGES',
+      description: 'We focus on the development and production of the sports goods, especially the impact protection goods for bicycle and motorcycle, and kinds of backpacks. We export mostly our products to all over the world and also engage in the domestic market.',
+      videos: {
+        factory: 'POI Factory Introduction',
+        lab: 'CE Lab',
+      },
+    },
+    history: {
+      title: 'OUR HISTORY',
+      description: 'We focus on the development and production of the sports goods, especially the impact protection goods for bicycle and motorcycle, and kinds of backpacks. We export mostly our products to all over the world and also engage in the domestic market.',
+      timeline: {
+        1995: 'Factory established',
+        2006: 'Off-road',
+        2016: 'Accessories PU, TPE,etc.',
+        2022: 'Garment project',
+      },
+      continue: 'Continue...',
+    },
+  },
 } as const;

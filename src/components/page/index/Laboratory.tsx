@@ -1,8 +1,8 @@
 import laboratoryImg from "@/assets/laboratory.jpg";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import { ArrowRight } from "lucide-react";
-import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import type { Language } from "@/i18n/config.ts";
+import { getTranslations } from "@/i18n/utils.ts";
 
 interface LaboratoryProps {
   lang: Language;

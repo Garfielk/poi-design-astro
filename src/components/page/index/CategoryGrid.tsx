@@ -2,8 +2,8 @@ import motorcycleImg from "@/assets/motorcycle.jpg";
 import mountainBikeImg from "@/assets/mountain-bike.jpg";
 import skiingImg from "@/assets/skiing.jpg";
 import sportsImg from "@/assets/sports.jpg";
-import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import type { Language } from "@/i18n/config.ts";
+import { getTranslations } from "@/i18n/utils.ts";
 
 interface CategoryGridProps {
   lang: Language;

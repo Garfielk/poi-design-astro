@@ -10,11 +10,11 @@ const Footer = ({ lang }: FooterProps) => {
   const t = getTranslations(lang);
 
   const navLinks = [
-    { label: t.nav.home, href: "#home" },
-    { label: t.nav.company, href: "#company" },
-    { label: t.nav.events, href: "#events" },
-    { label: t.nav.products, href: "#products" },
-    { label: t.nav.contactUs, href: "#contact" },
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.company, href: "/company" },
+    { label: t.nav.products, href: "/products" },
+    { label: t.nav.events, href: "/events" },
+    { label: t.nav.contactUs, href: "/contact" },
   ];
 
   return (

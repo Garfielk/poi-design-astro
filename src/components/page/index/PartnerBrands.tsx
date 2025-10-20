@@ -9,8 +9,8 @@ import heldLogo from "@/assets/brands/held-logo.png";
 import rukkaLogo from "@/assets/brands/rukka-logo.png";
 import spidiLogo from "@/assets/brands/spidi-logo.png";
 import {memo} from 'react'
-import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import type { Language } from "@/i18n/config.ts";
+import { getTranslations } from "@/i18n/utils.ts";
 
 const brands = [
   { name: "KENVY", logo: kenvyLogo.src },

@@ -1,6 +1,8 @@
 import heroProtector from "@/assets/hero-protector.jpg";
-import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import type { Language } from "@/i18n/config.ts";
+import { getTranslations } from "@/i18n/utils.ts";
+import {ArrowRight} from "lucide-react";
+import {Button} from "@/components/ui/button.tsx";
 
 interface ProductShowcaseProps {
   lang: Language;
@@ -43,12 +45,17 @@ const ProductShowcase = ({ lang }: ProductShowcaseProps) => {
               {t.home.productShowcase.description}
             </p>
 
-            <div className="pt-4">
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/20 border border-primary/50 rounded-lg hover:bg-primary/30 transition-all duration-300 cursor-pointer group">
-                <span className="text-accent font-medium">{t.home.productShowcase.learnMore}</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </div>
+            <Button
+              variant="outline"
+              size="lg"
+              className="group border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+              asChild
+            >
+              <a href="/laboratory">
+                {t.home.productShowcase.learnMore}
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
           </div>
         </div>
       </div>

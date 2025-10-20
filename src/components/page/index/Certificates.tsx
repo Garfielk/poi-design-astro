@@ -3,8 +3,8 @@ import ceCertificate from "@/assets/certificates/ce-certificate.jpg";
 import fccCertificate from "@/assets/certificates/fcc-certificate.jpg";
 import euDeclaration from "@/assets/certificates/eu-declaration.jpg";
 import koreanCert from "@/assets/certificates/korean-cert.jpg";
-import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import type { Language } from "@/i18n/config.ts";
+import { getTranslations } from "@/i18n/utils.ts";
 
 interface CertificatesProps {
   lang: Language;

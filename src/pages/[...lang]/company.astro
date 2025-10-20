@@ -1,46 +1,20 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-import IndexPage from "@/components/index/Index.tsx"
-import { getAlternatePath } from '@/i18n/utils.ts';
+import CompanyPage from "@/components/page/Company.tsx"
+import type {Language} from "@/i18n/config.ts";
 
 export const prerender = true;
 
-// 定义语言数据
-const translations = {
-	en: {
-		title: 'About Us',
-		content: 'Welcome to our company site! We value innovation and quality.',
-	},
-	'zh-CN': {
-		title: '关于我们',
-		content: '欢迎来到我们的网站！我们重视创新与品质。',
-	},
-};
-
-// 生成静态路径（SSG 多语言）
 export async function getStaticPaths() {
-	return [
-		{ params: { lang: undefined }, props: { lang: 'en' } },
-		{ params: { lang: 'zh-CN' }, props: { lang: 'zh-CN' } },
-	];
+  return [
+    { params: { lang: undefined }, props: { lang: 'en' as Language } },
+    { params: { lang: 'zh-CN' }, props: { lang: 'zh-CN' as Language } },
+  ];
 }
 
 const { lang } = Astro.props as {lang: 'en' | 'zh-CN'};
-const t = translations[lang];
-
-const currentPath = Astro.url.pathname;
-const fullUrl = Astro.url.href;
-const searchParams = Astro.url.searchParams;
-
-const alternatePath =
-	lang === 'en'
-		? getAlternatePath(currentPath, 'zh-CN')
-		: getAlternatePath(currentPath, 'en');
-
-console.log('当前路径:', currentPath);
-console.log('完整 URL:', fullUrl);
 ---
 
 <MainLayout lang={lang}>
-  <IndexPage client:load />
+  <CompanyPage lang={lang} client:load />
 </MainLayout>

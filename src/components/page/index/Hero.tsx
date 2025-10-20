@@ -5,13 +5,13 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/components/ui/carousel";
+} from "@/components/ui/carousel.tsx";
 import heroProtector from "@/assets/hero-protector.jpg";
 import motorcycle from "@/assets/motorcycle.jpg";
 import skiing from "@/assets/skiing.jpg";
 import mountainBike from "@/assets/mountain-bike.jpg";
-import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import type { Language } from "@/i18n/config.ts";
+import { getTranslations } from "@/i18n/utils.ts";
 
 interface HeroProps {
   lang: Language;
