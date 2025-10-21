@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import type {Language} from "@/i18n/config.ts";
+import MarkdownPostLayout from '@/layouts/post.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('post');
+  const postsCN = await getCollection('postCN');
+  const en = posts.map(post => ({
+    params: { slug: post.id, lang: undefined, }, props: { post, lang: 'en' },
+  }));
+  const cn = postsCN.map(post => ({
+    params: { slug: post.id, lang: 'zh-CN', }, props: { post, lang: 'zh-CN' },
+  }));
+  return [...en, ...cn];
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<MarkdownPostLayout frontmatter={post.data}>
+  <Content />
+</MarkdownPostLayout>

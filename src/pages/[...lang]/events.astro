@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import MainLayout from '@/layouts/main.astro';
+import EventsPage from "@/components/page/Events.tsx"
+import type {Language} from "@/i18n/config.ts";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('post');
+  const postsCN = await getCollection('postCN');
+  return [
+    { params: { lang: undefined }, props: { lang: 'en' as Language, posts: posts.map(post => post.data) } },
+    { params: { lang: 'zh-CN' }, props: { lang: 'zh-CN' as Language, posts: postsCN.map(post => post.data) } },
+  ];
+}
+
+const { lang, posts } = Astro.props as {lang: 'en' | 'zh-CN', posts: any[]};
+
+
+console.log(posts);
+---
+
+<MainLayout lang={lang}>
+  <EventsPage lang={lang} events={posts} client:load />
+</MainLayout>

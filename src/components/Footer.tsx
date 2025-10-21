@@ -1,6 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import type { Language } from "@/i18n/config";
-import { getTranslations } from "@/i18n/utils";
+import {getLocalizedPath, getTranslations} from "@/i18n/utils";
 
 interface FooterProps {
   lang: Language;
@@ -10,11 +10,11 @@ const Footer = ({ lang }: FooterProps) => {
   const t = getTranslations(lang);
 
   const navLinks = [
-    { label: t.nav.home, href: "/" },
-    { label: t.nav.company, href: "/company" },
-    { label: t.nav.products, href: "/products" },
-    { label: t.nav.events, href: "/events" },
-    { label: t.nav.contactUs, href: "/contact" },
+    { label: t.nav.home, href: getLocalizedPath("/", lang) },
+    { label: t.nav.company, href: getLocalizedPath("/company", lang) },
+    { label: t.nav.products, href: getLocalizedPath("/products", lang) },
+    { label: t.nav.events, href: getLocalizedPath("/events", lang) },
+    { label: t.nav.contactUs, href: getLocalizedPath("/contact", lang) },
   ];
 
   return (

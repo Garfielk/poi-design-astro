@@ -93,7 +93,7 @@ const Header = ({ lang }: Props) => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2 group">
+          <a href="/" className="flex items-center space-x-2 group">
             <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               POI
             </div>
@@ -124,9 +124,9 @@ const Header = ({ lang }: Props) => {
 
           {/* Language Switcher & Mobile Menu */}
           <div className="flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               className="hidden lg:flex items-center gap-2 text-white/90 hover:text-accent hover:bg-white/10"
               onClick={() => window.location.href = switchUrl}
             >
@@ -162,7 +162,7 @@ const Header = ({ lang }: Props) => {
                   {item.label}
                 </a>
               ))}
-              <button 
+              <button
                 className="flex items-center gap-2 text-sm text-white/90 hover:text-accent transition-colors py-2"
                 onClick={() => window.location.href = switchUrl}
               >
