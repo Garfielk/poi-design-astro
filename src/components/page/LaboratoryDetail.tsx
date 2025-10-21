@@ -9,36 +9,36 @@ interface Props {
 
 const LaboratoryDetail = ({ lang }: Props) => {
   const t = getTranslations(lang);
-  // Sample data for content blocks
+
   const contentBlocks = [
     {
       id: 1,
-      title: "Test data empirically validates performance",
-      description: "Our advanced laboratory is equipped with state-of-the-art impact machine and a programmable constant temperature and humidity test chamber.\n\nWe test the product's impact resistance under different temperature and humidity conditions and will improve the product based on the test results.\n\nErgonomic design principles integrated with scientifically validated test data deliver exceptional product performance and user comfort.",
+      title: t.laboratory.contentBlocks[0].title,
+      description: t.laboratory.contentBlocks[0].description,
       image: laboratoryImg.src,
       imageOnRight: true,
       bgClass: "bg-background"
     },
     {
       id: 2,
-      title: "Through which engineering methodologies can we enhance product performance metrics?",
-      description: "Through multidimensional analysis of quantitative data across various test trails, comprehensive experimental evaluation and critical examination of structural parameters, we can achieve targeted reinforcement of structural strength.\n\nOur methodology combines advanced testing protocols with data-driven insights to optimize protection performance.",
+      title: t.laboratory.contentBlocks[1].title,
+      description: t.laboratory.contentBlocks[1].description,
       image: laboratoryImg.src,
       imageOnRight: false,
       bgClass: "bg-secondary/20"
     },
     {
       id: 3,
-      title: "How do we implement this process?",
-      description: "Our laboratory performs global impact resistance testing under programmable temperature and humidity conditions. By leveraging customizable algorithm test databases, we enhance product reliability via testing experimental insights back into our design process.\n\nThis iterative approach ensures continuous improvement and superior product quality.",
+      title: t.laboratory.contentBlocks[2].title,
+      description: t.laboratory.contentBlocks[2].description,
       image: laboratoryImg.src,
       imageOnRight: true,
       bgClass: "bg-background"
     },
     {
       id: 4,
-      title: "About the test",
-      description: "Our R&D center utilizes specialized impact testing equipment to rigorously validate product quality and reliability.\n\nOur facility leverages systematic analysis, providing actionable insights for new product development.\n\nWe are committed to continuous refinement of our offerings to enhance competitive positioning in the market.",
+      title: t.laboratory.contentBlocks[3].title,
+      description: t.laboratory.contentBlocks[3].description,
       image: laboratoryImg.src,
       imageOnRight: false,
       bgClass: "bg-white"
@@ -55,24 +55,23 @@ const LaboratoryDetail = ({ lang }: Props) => {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <a href={getLocalizedPath("/", lang)}>Home</a>
+                  <a href={getLocalizedPath("/", lang)}>{t.nav.home}</a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Laboratory</BreadcrumbPage>
+                <BreadcrumbPage>{t.home.laboratory.title}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
 
           <div className="max-w-4xl">
             <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              LABORATORY
+              {t.home.laboratory.title}
             </h1>
             <div className="w-32 h-1.5 bg-gradient-to-r from-primary to-accent mb-8" />
             <p className="text-xl text-foreground/80 leading-relaxed">
-              Product test data provides the most accurate quantification of performance.
-              Our state-of-the-art facility ensures every product meets the highest standards.
+              {t.laboratory.hero.description}
             </p>
           </div>
         </div>

@@ -155,6 +155,35 @@ export default {
       ],
     },
   },
+  laboratory: {
+    hero: {
+      description:
+        'Product test data provides the most accurate quantification of performance. Our state-of-the-art facility ensures every product meets the highest standards.',
+    },
+    contentBlocks: [
+      {
+        title: 'Test data empirically validates performance',
+        description:
+          "Our advanced laboratory is equipped with state-of-the-art impact machine and a programmable constant temperature and humidity test chamber.\n\nWe test the product's impact resistance under different temperature and humidity conditions and will improve the product based on the test results.\n\nErgonomic design principles integrated with scientifically validated test data deliver exceptional product performance and user comfort.",
+      },
+      {
+        title:
+          'Through which engineering methodologies can we enhance product performance metrics?',
+        description:
+          'Through multidimensional analysis of quantitative data across various test trails, comprehensive experimental evaluation and critical examination of structural parameters, we can achieve targeted reinforcement of structural strength.\n\nOur methodology combines advanced testing protocols with data-driven insights to optimize protection performance.',
+      },
+      {
+        title: 'How do we implement this process?',
+        description:
+          'Our laboratory performs global impact resistance testing under programmable temperature and humidity conditions. By leveraging customizable algorithm test databases, we enhance product reliability via testing experimental insights back into our design process.\n\nThis iterative approach ensures continuous improvement and superior product quality.',
+      },
+      {
+        title: 'About the test',
+        description:
+          'Our R&D center utilizes specialized impact testing equipment to rigorously validate product quality and reliability.\n\nOur facility leverages systematic analysis, providing actionable insights for new product development.\n\nWe are committed to continuous refinement of our offerings to enhance competitive positioning in the market.',
+      },
+    ],
+  },
   contact: {
     hero: {
       title: 'Contact',
