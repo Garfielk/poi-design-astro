@@ -106,6 +106,55 @@ export default {
       continue: 'Continue...',
     },
   },
+  products: {
+    hero: {
+      imageAlt: {
+        protector: 'POI Protector',
+        product: 'Protector Product',
+      },
+    },
+    features: [
+      {
+        title: 'BREATHABLE',
+        description: 'Laser-cut ventilation holes and patchy surface provide breathable air flow.',
+      },
+      {
+        title: 'LOW PROFILE',
+        description: 'A lightweight, sleek comfort with low bulk fit.',
+      },
+      {
+        title: 'FLEXIBLE',
+        description: 'Ultimate flexibility for all temperature ranges.',
+      },
+      {
+        title: 'LEVEL 2 IMPACT PROTECTION',
+        description: 'Highest level of protection with EN 1621-1 and CE certified, surface compared to standard CE certified padding.',
+      },
+      {
+        title: 'BIODEGRADABLE',
+        description: 'Special ingredients are added during the manufacturing process of the PIGE material to speed up the biodegradation process in a microbe-rich land and oxygen environment.',
+      },
+    ],
+    categories: {
+      title: 'Protector',
+      items: {
+        protector: 'Protector',
+        garment: 'Garment',
+        accessory: 'Accessory',
+        custom: 'Custom',
+      },
+    },
+    confidence: {
+      title: 'What constitutes the foundation of our product confidence?',
+      description: "Our products' superior performance originates from:",
+      imageAlt: 'Product Structure',
+      points: [
+        'Evidence-based validation through accelerated lifecycle testing',
+        'Data-driven design optimization leveraging experimental analytics',
+        'Cloud-loop quality evolution via iterative design, prototype and enhancement',
+      ],
+    },
+  },
   contact: {
     hero: {
       title: 'Contact',

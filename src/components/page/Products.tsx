@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import {
   Carousel,
@@ -7,77 +6,31 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-// import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import heroProtector from "@/assets/hero-protector.jpg";
 import motorcycle from "@/assets/motorcycle.jpg";
 import mountainBike from "@/assets/mountain-bike.jpg";
-import skiing from "@/assets/skiing.jpg";
 import sports from "@/assets/sports.jpg";
-import type {Language} from "@/i18n/config.ts";
-import {getLocalizedPath, useTranslations} from "@/i18n/utils.ts";
-
-const features = [
-  {
-    title: "BREATHABLE",
-    description: "Laser-cut ventilation holes and patchy surface provide breathable air flow.",
-  },
-  {
-    title: "LOW PROFILE",
-    description: "A lightweight, sleek comfort with low bulk fit.",
-  },
-  {
-    title: "FLEXIBLE",
-    description: "Ultimate flexibility for all temperature ranges.",
-  },
-  {
-    title: "LEVEL 2 IMPACT PROTECTION",
-    description: "Highest level of protection with EN 1621-1 and CE certified, surface compared to standard CE certified padding.",
-  },
-  {
-    title: "BIODEGRADABLE",
-    description: "Special ingredients are added during the manufacturing process of the PIGE material to speed up the biodegradation process in a microbe-rich land and oxygen environment.",
-  },
-];
-
-const protectorProducts = [
-  { id: 1, name: "Motorcycle Back Protector Pro", image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop" },
-  { id: 2, name: "MTB Knee & Shin Guards", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" },
-  { id: 3, name: "Ski Wrist Guards", image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop" },
-  { id: 4, name: "Sports Chest Protector", image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400&h=400&fit=crop" },
-  { id: 5, name: "Motorcycle Shoulder Protector", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" },
-  { id: 6, name: "MTB Elbow Guards Pro", image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop" },
-];
-
-const garmentProducts = [
-  { id: 1, name: "Racing Vest Pro", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" },
-  { id: 2, name: "Protection Jacket Elite", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop" },
-  { id: 3, name: "Sports Armor Shirt", image: "https://images.unsplash.com/photo-1503341338985-b03fba30d0f1?w=400&h=400&fit=crop" },
-  { id: 4, name: "Performance Vest X2", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" },
-  { id: 5, name: "Impact Protection Tee", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop" },
-];
-
-const confidencePoints = [
-  "Evidence-based validation through accelerated lifecycle testing",
-  "Data-driven design optimization leveraging experimental analytics",
-  "Cloud-loop quality evolution via iterative design, prototype and enhancement",
-];
+import type { Language } from "@/i18n/config.ts";
+import { getLocalizedPath, useTranslations } from "@/i18n/utils.ts";
 
 interface Props {
   lang: Language;
 }
 
-const Products = ({lang}: Props) => {
-  const {t} = useTranslations(lang);
+const Products = ({ lang }: Props) => {
+  const { t } = useTranslations(lang);
+
+  const features = t.products.features;
 
   const categories = [
-    { name: "Protector", image: heroProtector.src, path: getLocalizedPath("/products/motorcycle", lang) },
-    { name: "Garment", image: motorcycle.src, path: getLocalizedPath("/products/mountain-bike", lang) },
-    { name: "Accessory", image: sports.src, path: getLocalizedPath("/products/skiing", lang) },
-    { name: "Custom", image: mountainBike.src, path: getLocalizedPath("/products/sports", lang) },
+    { name: t.products.categories.items.protector, image: heroProtector.src, path: getLocalizedPath("/products/motorcycle", lang) },
+    { name: t.products.categories.items.garment, image: motorcycle.src, path: getLocalizedPath("/products/mountain-bike", lang) },
+    { name: t.products.categories.items.accessory, image: sports.src, path: getLocalizedPath("/products/skiing", lang) },
+    { name: t.products.categories.items.custom, image: mountainBike.src, path: getLocalizedPath("/products/sports", lang) },
   ];
+
+  const confidencePoints = t.products.confidence.points;
 
   return (
     <>
@@ -86,7 +39,7 @@ const Products = ({lang}: Props) => {
         <div className="absolute inset-0 opacity-40">
           <img
             src={heroProtector.src}
-            alt="POI Protector"
+            alt={t.products.hero.imageAlt.protector}
             className="w-full h-full object-cover"
           />
         </div>
@@ -98,7 +51,7 @@ const Products = ({lang}: Props) => {
               <div className="relative">
                 <img
                   src={heroProtector.src}
-                  alt="Protector Product"
+                  alt={t.products.hero.imageAlt.product}
                   className="w-full max-w-md mx-auto"
                 />
               </div>
@@ -130,7 +83,7 @@ const Products = ({lang}: Props) => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            Protector
+            {t.products.categories.title}
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -169,7 +122,7 @@ const Products = ({lang}: Props) => {
             <div>
               <img
                 src="https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=800&h=800&fit=crop"
-                alt="Product Structure"
+                alt={t.products.confidence.imageAlt}
                 className="w-full rounded-2xl shadow-2xl"
               />
             </div>
@@ -177,10 +130,10 @@ const Products = ({lang}: Props) => {
             {/* Right - Content */}
             <div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-                What constitutes the foundation of our product confidence?
+                {t.products.confidence.title}
               </h2>
               <p className="text-lg text-gray-300 mb-6">
-                Our products' superior performance originates from:
+                {t.products.confidence.description}
               </p>
               <ul className="space-y-4">
                 {confidencePoints.map((point, index) => (
@@ -309,5 +262,22 @@ const Products = ({lang}: Props) => {
     </>
   );
 };
+
+const protectorProducts = [
+  { id: 1, name: "Motorcycle Back Protector Pro", image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop" },
+  { id: 2, name: "MTB Knee & Shin Guards", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" },
+  { id: 3, name: "Ski Wrist Guards", image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop" },
+  { id: 4, name: "Sports Chest Protector", image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400&h=400&fit=crop" },
+  { id: 5, name: "Motorcycle Shoulder Protector", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" },
+  { id: 6, name: "MTB Elbow Guards Pro", image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop" },
+];
+
+const garmentProducts = [
+  { id: 1, name: "Racing Vest Pro", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" },
+  { id: 2, name: "Protection Jacket Elite", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop" },
+  { id: 3, name: "Sports Armor Shirt", image: "https://images.unsplash.com/photo-1503341338985-b03fba30d0f1?w=400&h=400&fit=crop" },
+  { id: 4, name: "Performance Vest X2", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" },
+  { id: 5, name: "Impact Protection Tee", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop" },
+];
 
 export default Products;
