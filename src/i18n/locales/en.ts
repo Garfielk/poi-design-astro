@@ -106,4 +106,22 @@ export default {
       continue: 'Continue...',
     },
   },
+  contact: {
+    hero: {
+      title: 'Contact',
+      description: 'Please use the contact information below to connect with our team. We will review your message and respond based on your specific needs and requirements.',
+      imageAlt: 'Contact',
+    },
+    details: {
+      email: 'Email',
+      phone: 'Phone',
+      address: 'Address',
+    },
+    team: {
+      title: 'Our Team',
+      subtitle: 'Meet the talented individuals behind POI Designs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.',
+      leadership: 'Leadership',
+      members: 'Team Members',
+    },
+  },
 } as const;

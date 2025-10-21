@@ -82,11 +82,10 @@ const Contact = ({lang}: Props) => {
             {/* Left Side - Contact Info */}
             <div className="animate-fade-in">
               <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                Contact
+                {t.contact.hero.title}
               </h1>
               <p className="text-lg text-muted-foreground mb-8 max-w-lg">
-                Please use the contact form below to connect with our team. We will review your submission
-                and provide a response depending on your specific needs and requirements.
+                {t.contact.hero.description}
               </p>
 
               {/* Contact Details */}
@@ -96,7 +95,7 @@ const Contact = ({lang}: Props) => {
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold">Email</p>
+                    <p className="font-semibold">{t.contact.details.email}</p>
                     <a href="mailto:info@poidesigns.com" className="text-muted-foreground hover:text-primary transition-colors">
                       info@poidesigns.com
                     </a>
@@ -108,7 +107,7 @@ const Contact = ({lang}: Props) => {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold">Phone</p>
+                    <p className="font-semibold">{t.contact.details.phone}</p>
                     <a href="tel:+8653266736937" className="text-muted-foreground hover:text-primary transition-colors">
                       +86 532 66736937
                     </a>
@@ -124,7 +123,7 @@ const Contact = ({lang}: Props) => {
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold">Address</p>
+                    <p className="font-semibold">{t.contact.details.address}</p>
                     <p className="text-muted-foreground">
                       AF CODE: 370214<br />
                       NO 8-3, YIYUAN ROAD, XIFUZHEN SUBDISTRICT<br />
@@ -140,7 +139,7 @@ const Contact = ({lang}: Props) => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&h=600&fit=crop"
-                  alt="Contact"
+                  alt={t.contact.hero.imageAlt}
                   className="w-full h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
@@ -154,17 +153,16 @@ const Contact = ({lang}: Props) => {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">Our Team</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">{t.contact.team.title}</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Meet the talented individuals behind POI Designs. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              {t.contact.team.subtitle}
             </p>
           </div>
 
           {/* Leadership Level */}
           <div className="mb-20">
             <div className="text-center mb-8 animate-fade-in">
-              <h3 className="text-2xl font-bold text-primary">Leadership</h3>
+              <h3 className="text-2xl font-bold text-primary">{t.contact.team.leadership}</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
               {leadershipTeam.map((member, index) => {
@@ -203,7 +201,7 @@ const Contact = ({lang}: Props) => {
           {/* Team Members Level */}
           <div>
             <div className="text-center mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <h3 className="text-2xl font-bold text-primary">Team Members</h3>
+              <h3 className="text-2xl font-bold text-primary">{t.contact.team.members}</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {teamMembers.map((member, index) => {
