@@ -106,4 +106,22 @@ export default {
       continue: '未完待续...',
     },
   },
+  contact: {
+    hero: {
+      title: '联系我们',
+      description: '请通过以下联系信息与我们的团队取得联系。我们会根据您的具体需求进行评估并尽快回复。',
+      imageAlt: '联系',
+    },
+    details: {
+      email: '邮箱',
+      phone: '电话',
+      address: '地址',
+    },
+    team: {
+      title: '我们的团队',
+      subtitle: '认识一下 POI Designs 背后的优秀人才。Lorem ipsum dolor sit amet，consectetur adipiscing elit。Lorem ipsum dolor sit amet consectetur adipiscing elit。',
+      leadership: '管理层',
+      members: '团队成员',
+    },
+  },
 } as const;
