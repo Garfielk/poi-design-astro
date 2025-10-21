@@ -1,0 +1,20 @@
+---
+import MainLayout from '@/layouts/main.astro';
+import LaboratoryDetailPage from "@/components/page/LaboratoryDetail.tsx"
+import type {Language} from "@/i18n/config.ts";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined }, props: { lang: 'en' as Language } },
+    { params: { lang: 'zh-CN' }, props: { lang: 'zh-CN' as Language } },
+  ];
+}
+
+const { lang } = Astro.props as {lang: 'en' | 'zh-CN'};
+---
+
+<MainLayout lang={lang}>
+  <LaboratoryDetailPage lang={lang} client:load />
+</MainLayout>
