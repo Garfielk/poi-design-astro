@@ -106,6 +106,55 @@ export default {
       continue: '未完待续...',
     },
   },
+  products: {
+    hero: {
+      imageAlt: {
+        protector: 'POI 防护装备',
+        product: '防护产品',
+      },
+    },
+    features: [
+      {
+        title: '透气',
+        description: '激光切割通风孔与斑纹表面提供良好空气流通。',
+      },
+      {
+        title: '轻薄',
+        description: '轻量纤薄，贴合舒适，降低臃肿感。',
+      },
+      {
+        title: '柔韧',
+        description: '在各类温度环境下保持极佳柔韧性。',
+      },
+      {
+        title: '二级冲击防护',
+        description: '通过 EN 1621-1 与 CE 认证，提供更高等级的防护性能。',
+      },
+      {
+        title: '可生物降解',
+        description: '在 PIGE 材料制程中加入特殊成分，可在富含微生物与氧气的环境中加速生物降解。',
+      },
+    ],
+    categories: {
+      title: '防护',
+      items: {
+        protector: '防护',
+        garment: '服装',
+        accessory: '配件',
+        custom: '定制',
+      },
+    },
+    confidence: {
+      title: '我们的产品自信源于什么？',
+      description: '我们的产品性能优势源于：',
+      imageAlt: '产品结构',
+      points: [
+        '通过加速生命周期测试进行证据化验证',
+        '基于数据与实验分析的设计优化',
+        '通过迭代设计、打样与优化实现质量的持续进化',
+      ],
+    },
+  },
   contact: {
     hero: {
       title: '联系我们',
