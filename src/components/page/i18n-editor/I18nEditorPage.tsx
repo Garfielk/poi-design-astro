@@ -2,9 +2,6 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Button } from '@/components/ui/button';
 import {
   Card,
-  CardAction,
-  CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -563,43 +560,42 @@ const I18nEditorPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-muted py-10">
+    <div className="min-h-screen bg-muted pt-10 pb-32">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4">
         <Card>
           <CardHeader>
             <CardTitle>i18n 翻译维护工具</CardTitle>
-            <CardDescription>
-              浏览器中保存的翻译将覆盖项目内的默认文案。编辑完成后，按导出按钮获取可直接替换的 en.ts 与 zh-CN.ts 文件。
-            </CardDescription>
           </CardHeader>
-          <CardAction className="flex flex-col items-end gap-3 sm:flex-row sm:items-center">
-            {saveStatus === 'saved' && (
-              <span className="text-xs font-medium text-emerald-600">已保存到浏览器</span>
-            )}
-            {saveStatus === 'error' && (
-              <span className="text-xs font-medium text-red-500">保存失败，请检查浏览器存储空间。</span>
-            )}
-            <Button onClick={handleExport} className="w-full sm:w-auto">
-              导出 ZIP
-            </Button>
-          </CardAction>
-          <CardContent className="space-y-3">
-            <ul className="list-disc space-y-2 pl-5 text-sm text-gray-600">
-              <li>页面会在输入框失焦后自动保存至浏览器的 LocalStorage。</li>
-              <li>导出的文件结构与项目中的 <code>src/i18n/locales</code> 完全一致。</li>
-              <li>无法增删字段，如需恢复默认翻译，可清除浏览器缓存数据。</li>
-            </ul>
-            {loadWarning && (
-              <p className="text-sm text-amber-600">{loadWarning}</p>
-            )}
-            <p className="text-xs text-gray-400">存储键：{STORAGE_KEY}</p>
-          </CardContent>
         </Card>
+
+        {loadWarning && (
+          <div className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+            {loadWarning}
+          </div>
+        )}
 
         <div className="space-y-6">
           {Object.entries(translations.en).map(([key, value]) =>
             renderNode(value, translations['zh-CN'][key], [key], 0),
           )}
+        </div>
+      </div>
+
+      <div className="pointer-events-none fixed bottom-6 left-0 right-0 z-50 flex w-full justify-center px-4 sm:bottom-8 sm:left-auto sm:right-8 sm:w-auto sm:justify-end">
+        <div className="pointer-events-auto flex flex-col items-center gap-2 sm:items-end">
+          {saveStatus === 'saved' && (
+            <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
+              已保存到浏览器
+            </span>
+          )}
+          {saveStatus === 'error' && (
+            <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-600">
+              保存失败，请检查浏览器存储空间。
+            </span>
+          )}
+          <Button onClick={handleExport} className="w-full shadow-lg sm:w-auto">
+            导出 ZIP
+          </Button>
         </div>
       </div>
     </div>
