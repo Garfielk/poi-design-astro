@@ -6,10 +6,8 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel.tsx";
-import heroProtector from "@/assets/hero-protector.jpg";
-import motorcycle from "@/assets/motorcycle.jpg";
-import skiing from "@/assets/skiing.jpg";
-import mountainBike from "@/assets/mountain-bike.jpg";
+import banner1 from "@/assets/index/banner1.jpg";
+import banner2 from "@/assets/index/banner2.jpg";
 import type { Language } from "@/i18n/config.ts";
 import { getTranslations } from "@/i18n/utils.ts";
 
@@ -23,10 +21,8 @@ const Hero = memo(({ lang }: HeroProps) => {
   const [current, setCurrent] = useState(0);
 
   const carouselImages = [
-    { src: heroProtector.src, alt: t.home.hero.imageAlt.protector },
-    { src: motorcycle.src, alt: t.home.hero.imageAlt.motorcycle },
-    { src: skiing.src, alt: t.home.hero.imageAlt.skiing },
-    { src: mountainBike.src, alt: t.home.hero.imageAlt.mountainBike },
+    { src: banner1.src, alt: t.home.hero.imageAlt.banner1 },
+    { src: banner2.src, alt: t.home.hero.imageAlt.banner2 },
   ];
 
   useEffect(() => {
@@ -53,7 +49,6 @@ const Hero = memo(({ lang }: HeroProps) => {
           <div className="container mx-auto px-4 lg:px-8 py-24 lg:py-0 space-y-8 z-10">
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
               <span className="block text-foreground">{t.home.hero.title1}</span>
-              <span className="block text-foreground">{t.home.hero.title2}</span>
               <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 {t.home.hero.title3}
               </span>

@@ -1,7 +1,10 @@
-import { useState } from "react";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from "lucide-react";
 import type {Language} from "@/i18n/config.ts";
 import {useTranslations} from "@/i18n/utils.ts";
+import banner from '@/assets/contact/banner.jpg'
+import Dean from '@/assets/contact/Dean.jpg'
+import Ella from '@/assets/contact/Ella.jpg'
+import Susan from '@/assets/contact/Susan.jpg'
 
 const leadershipTeam = [
   {
@@ -23,46 +26,28 @@ const leadershipTeam = [
 const teamMembers = [
   {
     id: 3,
-    name: "Michael Chen",
-    role: "Art Director",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    social: { icon: Twitter, bg: "bg-[#1DA1F2]" }
+    name: "Ella Guan",
+    role: "VP",
+    mobile: '+86-15020036235',
+    email: 'ella@poidesigns.com',
+    image: Ella.src,
   },
   {
-    id: 4,
-    name: "Emily Williams",
-    role: "Product Manager",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    social: { icon: Facebook, bg: "bg-[#1877F2]" }
+    id: 3,
+    name: "Susan Pan",
+    role: "Manager",
+    mobile: '+86-13361232855',
+    email: 'susan@poidesigns.com',
+    image: Susan.src,
   },
   {
-    id: 5,
-    name: "David Martinez",
-    role: "Lead Designer",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    social: { icon: Instagram, bg: "bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF]" }
+    id: 3,
+    name: "Dean Ding",
+    role: "Manager",
+    mobile: '+86-18660299596',
+    email: 'dean@poidesigns.com',
+    image: Dean.src,
   },
-  {
-    id: 6,
-    name: "Lisa Thompson",
-    role: "Marketing Director",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-    social: { icon: Twitter, bg: "bg-[#1DA1F2]" }
-  },
-  {
-    id: 7,
-    name: "James Wilson",
-    role: "Technical Lead",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-    social: { icon: Linkedin, bg: "bg-[#0A66C2]" }
-  },
-  {
-    id: 8,
-    name: "Anna Rodriguez",
-    role: "Business Developer",
-    image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop",
-    social: { icon: Facebook, bg: "bg-[#1877F2]" }
-  }
 ];
 
 interface Props {
@@ -70,8 +55,6 @@ interface Props {
 }
 const Contact = ({lang}: Props) => {
   const {t} = useTranslations(lang);
-
-  const [hoveredMember, setHoveredMember] = useState<number | null>(null);
 
   return (
     <>
@@ -96,8 +79,8 @@ const Contact = ({lang}: Props) => {
                   </div>
                   <div>
                     <p className="font-semibold">{t.contact.details.email}</p>
-                    <a href="mailto:info@poidesigns.com" className="text-muted-foreground hover:text-primary transition-colors">
-                      info@poidesigns.com
+                    <a href={`mailto:${t.footer.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                      {t.footer.email}
                     </a>
                   </div>
                 </div>
@@ -109,11 +92,11 @@ const Contact = ({lang}: Props) => {
                   <div>
                     <p className="font-semibold">{t.contact.details.phone}</p>
                     <a href="tel:+8653266736937" className="text-muted-foreground hover:text-primary transition-colors">
-                      +86 532 66736937
+                      {t.footer.phone}
                     </a>
                     <br />
                     <a href="tel:+8619920628225" className="text-muted-foreground hover:text-primary transition-colors">
-                      +86 19920628225
+                      {t.footer.phoneSecondary}
                     </a>
                   </div>
                 </div>
@@ -125,9 +108,10 @@ const Contact = ({lang}: Props) => {
                   <div>
                     <p className="font-semibold">{t.contact.details.address}</p>
                     <p className="text-muted-foreground">
-                      AF CODE: 370214<br />
-                      NO 8-3, YIYUAN ROAD, XIFUZHEN SUBDISTRICT<br />
-                      CHENGYANG DISTRICT, QINGDAO, SHANDONG, CHINA
+                      {t.footer.zipCode}<br />
+                      {t.footer.address}<br />
+                      {t.footer.addressLine2}<br />
+                      {t.footer.addressLine3}
                     </p>
                   </div>
                 </div>
@@ -135,12 +119,12 @@ const Contact = ({lang}: Props) => {
             </div>
 
             {/* Right Side - Image */}
-            <div className="relative animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative animate-fade-in flex justify-center items-center" style={{ animationDelay: "0.1s" }}>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[720/920] h-[52.5vh] w-auto">
                 <img
-                  src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&h=600&fit=crop"
+                  src={banner.src}
                   alt={t.contact.hero.imageAlt}
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
               </div>
@@ -154,86 +138,95 @@ const Contact = ({lang}: Props) => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">{t.contact.team.title}</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              {t.contact.team.subtitle}
-            </p>
+            {/*<p className="text-lg text-muted-foreground max-w-3xl mx-auto">*/}
+            {/*  {t.contact.team.subtitle}*/}
+            {/*</p>*/}
           </div>
 
           {/* Leadership Level */}
-          <div className="mb-20">
-            <div className="text-center mb-8 animate-fade-in">
-              <h3 className="text-2xl font-bold text-primary">{t.contact.team.leadership}</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              {leadershipTeam.map((member, index) => {
-                const isHovered = hoveredMember === member.id;
+          {/*<div className="mb-20">*/}
+          {/*  <div className="text-center mb-8 animate-fade-in">*/}
+          {/*    <h3 className="text-2xl font-bold text-primary">{t.contact.team.leadership}</h3>*/}
+          {/*  </div>*/}
+          {/*  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">*/}
+          {/*    {leadershipTeam.map((member, index) => {*/}
+          {/*      const isHovered = hoveredMember === member.id;*/}
 
-                return (
-                  <div
-                    key={member.id}
-                    className="group animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                    onMouseEnter={() => setHoveredMember(member.id)}
-                    onMouseLeave={() => setHoveredMember(null)}
-                  >
-                    <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-                      {/* Image */}
-                      <div className="w-full aspect-[3/4] overflow-hidden">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
+          {/*      return (*/}
+          {/*        <div*/}
+          {/*          key={member.id}*/}
+          {/*          className="group animate-fade-in"*/}
+          {/*          style={{ animationDelay: `${index * 0.1}s` }}*/}
+          {/*          onMouseEnter={() => setHoveredMember(member.id)}*/}
+          {/*          onMouseLeave={() => setHoveredMember(null)}*/}
+          {/*        >*/}
+          {/*          <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">*/}
+          {/*            /!* Image *!/*/}
+          {/*            <div className="w-full aspect-[3/4] overflow-hidden">*/}
+          {/*              <img*/}
+          {/*                src={member.image}*/}
+          {/*                alt={member.name}*/}
+          {/*                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"*/}
+          {/*              />*/}
+          {/*            </div>*/}
 
-                      {/* Info Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-background p-4 transform transition-transform duration-300">
-                        <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                        <p className="text-sm text-muted-foreground">{member.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          {/*            /!* Info Overlay *!/*/}
+          {/*            <div className="absolute bottom-0 left-0 right-0 bg-background p-4 transform transition-transform duration-300">*/}
+          {/*              <h3 className="font-bold text-lg mb-1">{member.name}</h3>*/}
+          {/*              <p className="text-sm text-muted-foreground">{member.role}</p>*/}
+          {/*            </div>*/}
+          {/*          </div>*/}
+          {/*        </div>*/}
+          {/*      );*/}
+          {/*    })}*/}
+          {/*  </div>*/}
+          {/*</div>*/}
 
           {/* Team Members Level */}
           <div>
-            <div className="text-center mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <h3 className="text-2xl font-bold text-primary">{t.contact.team.members}</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {teamMembers.map((member, index) => {
-                const isHovered = hoveredMember === member.id;
+            {/*<div className="text-center mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>*/}
+            {/*  <h3 className="text-2xl font-bold text-primary">{t.contact.team.members}</h3>*/}
+            {/*</div>*/}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-4xl mx-auto">
+              {teamMembers.map((member, index) => (
+                <div
+                  key={member.id}
+                  className="group animate-fade-in"
+                  style={{ animationDelay: `${(index + 2) * 0.1}s` }}
+                >
+                  <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    {/* Image */}
+                    <div className="w-full aspect-[3/4] overflow-hidden">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
 
-                return (
-                  <div
-                    key={member.id}
-                    className="group animate-fade-in"
-                    style={{ animationDelay: `${(index + 2) * 0.1}s` }}
-                    onMouseEnter={() => setHoveredMember(member.id)}
-                    onMouseLeave={() => setHoveredMember(null)}
-                  >
-                    <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-                      {/* Image */}
-                      <div className="w-full aspect-[3/4] overflow-hidden">
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-
-                      {/* Info Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-background p-4 transform transition-transform duration-300">
-                        <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                        <p className="text-sm text-muted-foreground">{member.role}</p>
+                    {/* Info Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-background p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 overflow-hidden">
+                      <h3 className="font-bold text-lg mb-2">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+                      <div className="space-y-1">
+                        <p className="text-sm text-muted-foreground flex items-center gap-1">
+                          <Phone className="w-3 h-3" />
+                          {member.mobile}
+                        </p>
+                        <p className="text-sm">
+                          <a 
+                            href={`mailto:${member.email}`} 
+                            className="text-primary hover:underline flex items-center gap-1"
+                          >
+                            <Mail className="w-3 h-3" />
+                            {member.email}
+                          </a>
+                        </p>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>

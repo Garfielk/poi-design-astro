@@ -7,128 +7,89 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import heroProtector from "@/assets/hero-protector.jpg";
-import motorcycle from "@/assets/motorcycle.jpg";
-import mountainBike from "@/assets/mountain-bike.jpg";
-import sports from "@/assets/sports.jpg";
+import concept from "@/assets/products/concept.jpg";
+import banner1 from "@/assets/products/banner1.jpg";
+import banner2 from "@/assets/products/banner2.jpg";
 import type { Language } from "@/i18n/config.ts";
 import { getLocalizedPath, useTranslations } from "@/i18n/utils.ts";
+import ProductCategories from "@/components/ProductCategories.tsx";
 
 interface Props {
   lang: Language;
 }
+
+const heroImages = [
+  banner1.src,
+  banner2.src
+];
 
 const Products = ({ lang }: Props) => {
   const { t } = useTranslations(lang);
 
   const features = t.products.features;
 
-  const categories = [
-    { name: t.products.categories.items.protector, image: heroProtector.src, path: getLocalizedPath("/products/motorcycle", lang) },
-    { name: t.products.categories.items.garment, image: motorcycle.src, path: getLocalizedPath("/products/mountain-bike", lang) },
-    { name: t.products.categories.items.accessory, image: sports.src, path: getLocalizedPath("/products/skiing", lang) },
-    { name: t.products.categories.items.custom, image: mountainBike.src, path: getLocalizedPath("/products/sports", lang) },
-  ];
-
   const confidencePoints = t.products.confidence.points;
 
   return (
     <>
-      {/* Hero Section with Product Features */}
-      <section className="relative min-h-screen flex items-center pt-20 bg-black text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-40">
-          <img
-            src={heroProtector.src}
-            alt={t.products.hero.imageAlt.protector}
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Product Image/Visual */}
-            <div>
-              <div className="relative">
-                <img
-                  src={heroProtector.src}
-                  alt={t.products.hero.imageAlt.product}
-                  className="w-full max-w-md mx-auto"
-                />
-              </div>
-            </div>
-
-            {/* Right Side - Features */}
-            <div className="space-y-8">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="group"
-                >
-                  <div className="border-l-4 border-primary pl-6 py-2 hover:border-accent transition-colors">
-                    <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
+      {/* Hero Section - Full Width Image Carousel */}
+      <section className="relative pt-16 md:pt-20 bg-black">
+        <Carousel
+          opts={{
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 4000,
+              stopOnInteraction: false,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent>
+            {heroImages.map((image, index) => (
+              <CarouselItem key={index}>
+                <div className="relative w-full h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] flex items-center justify-center bg-black">
+                  <img
+                    src={image}
+                    alt=""
+                    className="max-w-full max-h-full object-contain"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
       </section>
 
       {/* Protector Categories */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            {t.products.categories.title}
+            {t.home.categoryGrid.title}
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category, index) => (
-              <a
-                key={index}
-                href={category.path}
-              >
-                <Card
-                  className="group relative overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300"
-                >
-                  <div className="aspect-[3/4] overflow-hidden">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-2xl font-bold text-white mb-1">{category.name}</h3>
-                    <p className="text-sm text-white/80">POI</p>
-                  </div>
-                </Card>
-              </a>
-            ))}
-          </div>
+          <ProductCategories lang={lang} />
         </div>
       </section>
 
       {/* Product Confidence Section */}
-      <section className="py-20 bg-black text-white">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="bg-black text-white">
+        <div>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left - Image */}
             <div>
               <img
-                src="https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=800&h=800&fit=crop"
+                src={concept.src}
                 alt={t.products.confidence.imageAlt}
-                className="w-full rounded-2xl shadow-2xl"
+                className="w-full max-h-206 object-cover"
               />
             </div>
 
             {/* Right - Content */}
-            <div>
+            <div className="p-4">
               <h2 className="text-3xl lg:text-4xl font-bold mb-8">
                 {t.products.confidence.title}
               </h2>
@@ -173,23 +134,20 @@ const Products = ({ lang }: Props) => {
                   <CarouselItem key={product.id} className="md:basis-1/3 lg:basis-1/4">
                     <div className="p-4">
                       <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                        <div className="aspect-square overflow-hidden bg-secondary relative">
+                        <div className="aspect-square overflow-hidden relative">
                           <img
                             src={product.image}
                             alt={product.name}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
-                          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <h3 className="text-white font-bold text-lg text-center px-4">{product.name}</h3>
-                          </div>
                         </div>
                       </Card>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="hidden lg:flex" />
+              <CarouselNext className="hidden lg:flex" />
             </Carousel>
           </div>
         </div>
@@ -217,23 +175,20 @@ const Products = ({ lang }: Props) => {
                   <CarouselItem key={product.id} className="md:basis-1/3 lg:basis-1/4">
                     <div className="p-4">
                       <Card className="overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300">
-                        <div className="aspect-square overflow-hidden bg-background relative">
+                        <div className="aspect-square overflow-hidden relative">
                           <img
                             src={product.image}
                             alt={product.name}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
-                          <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <h3 className="text-white font-bold text-lg text-center px-4">{product.name}</h3>
-                          </div>
                         </div>
                       </Card>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="hidden lg:flex" />
+              <CarouselNext className="hidden lg:flex" />
             </Carousel>
           </div>
         </div>
@@ -264,20 +219,21 @@ const Products = ({ lang }: Props) => {
 };
 
 const protectorProducts = [
-  { id: 1, name: "Motorcycle Back Protector Pro", image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop" },
-  { id: 2, name: "MTB Knee & Shin Guards", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" },
-  { id: 3, name: "Ski Wrist Guards", image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop" },
-  { id: 4, name: "Sports Chest Protector", image: "https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=400&h=400&fit=crop" },
-  { id: 5, name: "Motorcycle Shoulder Protector", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" },
-  { id: 6, name: "MTB Elbow Guards Pro", image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop" },
+  { id: 1, name: "Motorcycle Back Protector Pro", image: "/products/top1.png" },
+  { id: 2, name: "Motorcycle Back Protector Pro", image: "/products/top2.png" },
+  { id: 3, name: "Motorcycle Back Protector Pro", image: "/products/top3.png" },
+  { id: 4, name: "Motorcycle Back Protector Pro", image: "/products/top4.png" },
+  { id: 5, name: "Motorcycle Back Protector Pro", image: "/products/top5.png" },
+  { id: 6, name: "Motorcycle Back Protector Pro", image: "/products/top6.png" },
 ];
 
 const garmentProducts = [
-  { id: 1, name: "Racing Vest Pro", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" },
-  { id: 2, name: "Protection Jacket Elite", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop" },
-  { id: 3, name: "Sports Armor Shirt", image: "https://images.unsplash.com/photo-1503341338985-b03fba30d0f1?w=400&h=400&fit=crop" },
-  { id: 4, name: "Performance Vest X2", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop" },
-  { id: 5, name: "Impact Protection Tee", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop" },
+  { id: 1, name: "Motorcycle Back Protector Pro", image: "/products/bottom1.png" },
+  { id: 2, name: "Motorcycle Back Protector Pro", image: "/products/bottom2.png" },
+  { id: 3, name: "Motorcycle Back Protector Pro", image: "/products/bottom3.png" },
+  { id: 4, name: "Motorcycle Back Protector Pro", image: "/products/bottom4.png" },
+  { id: 5, name: "Motorcycle Back Protector Pro", image: "/products/bottom5.png" },
+
 ];
 
 export default Products;

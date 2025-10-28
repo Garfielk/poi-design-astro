@@ -94,10 +94,12 @@ const Header = ({ lang }: Props) => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2 group">
-            <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              POI
+            <div
+              className="w-32 h-10 lg:w-40 lg:h-12 bg-contain bg-center bg-no-repeat"
+              style={{ backgroundImage: "url('/src/assets/logo.png')" }}
+            >
+              <span className="sr-only">POI design</span>
             </div>
-            <span className="text-xs lg:text-sm text-white/70 hidden sm:inline">RESEARCH</span>
           </a>
 
           {/* Desktop Navigation */}

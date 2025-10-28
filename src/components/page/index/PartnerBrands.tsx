@@ -1,35 +1,42 @@
-import kenvyLogo from "@/assets/brands/kenvy-logo.png";
-import falcospeedLogo from "@/assets/brands/falcospeed-logo.png";
-import komineLogo from "@/assets/brands/komine-logo.png";
-import onealLogo from "@/assets/brands/oneal-logo.png";
-import alpinestarsLogo from "@/assets/brands/alpinestars-logo.png";
-import daineseLogo from "@/assets/brands/dainese-logo.png";
-import revitLogo from "@/assets/brands/revit-logo.png";
-import heldLogo from "@/assets/brands/held-logo.png";
-import rukkaLogo from "@/assets/brands/rukka-logo.png";
-import spidiLogo from "@/assets/brands/spidi-logo.png";
+import logo1 from "@/assets/brands/1.jpg";
+import logo2 from "@/assets/brands/2.png";
+import logo3 from "@/assets/brands/3.png";
+import logo4 from "@/assets/brands/4.jpg";
+import logo5 from "@/assets/brands/5.jpg";
+import logo6 from "@/assets/brands/6.jpg";
+import logo7 from "@/assets/brands/7.png";
+import logo8 from "@/assets/brands/8.png";
+import logo9 from "@/assets/brands/9.png";
+import logo10 from "@/assets/brands/10.jpg";
+import logo11 from "@/assets/brands/11.webp";
+import logo12 from "@/assets/brands/12.jpg";
+import logo13 from "@/assets/brands/13.jpg";
+
 import {memo} from 'react'
 import type { Language } from "@/i18n/config.ts";
 import { getTranslations } from "@/i18n/utils.ts";
 
 const brands = [
-  { name: "KENVY", logo: kenvyLogo.src },
-  { name: "FALCOSPEED", logo: falcospeedLogo.src },
-  { name: "KOMINE", logo: komineLogo.src },
-  { name: "O'NEAL", logo: onealLogo.src },
-  { name: "ALPINESTARS", logo: alpinestarsLogo.src },
-  { name: "DAINESE", logo: daineseLogo.src },
-  { name: "REV'IT", logo: revitLogo.src },
-  { name: "HELD", logo: heldLogo.src },
-  { name: "RUKKA", logo: rukkaLogo.src },
-  { name: "SPIDI", logo: spidiLogo.src },
+  { name: "KENVY", logo: logo1.src },
+  { name: "FALCOSPEED", logo: logo2.src },
+  { name: "KOMINE", logo: logo3.src },
+  { name: "O'NEAL", logo: logo4.src },
+  { name: "ALPINESTARS", logo: logo5.src },
+  { name: "DAINESE", logo: logo6.src },
+  { name: "REV'IT", logo: logo7.src },
+  { name: "HELD", logo: logo8.src },
+  { name: "RUKKA", logo: logo9.src },
+  { name: "SPIDI", logo: logo10.src },
+  { name: "SPIDI", logo: logo11.src },
+  { name: "SPIDI", logo: logo12.src },
+  { name: "SPIDI", logo: logo13.src },
 ];
 
 const BrandCard = memo(({ brand }: { brand: { name: string; logo: string } }) => (
   <div className="flex-shrink-0 w-48 h-28 flex items-center justify-center bg-background/50 border border-border rounded-lg p-4 grayscale hover:grayscale-0 hover:border-primary/50 transition-all duration-300">
     <img
       src={brand.logo}
-      alt={`${brand.name} logo`}
+      alt={`partner logo`}
       loading="lazy"
       className="max-w-full max-h-full object-contain"
     />

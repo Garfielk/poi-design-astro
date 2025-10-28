@@ -11,7 +11,7 @@ const categories = [
   { title: "Motorcycle", path: "motorcycle", icon: Bike },
   { title: "Mountain Bike", path: "mountain-bike", icon: Mountain },
   { title: "Skiing", path: "skiing", icon: Snowflake },
-  { title: "Sports", path: "sports", icon: Dumbbell },
+  { title: "Sports", path: "textile-garment", icon: Dumbbell },
 ];
 
 const productsByCategory: Record<string, Array<{ id: string; image: string; name: string; description: string }>> = {

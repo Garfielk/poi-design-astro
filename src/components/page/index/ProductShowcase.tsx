@@ -1,6 +1,6 @@
 import heroProtector from "@/assets/hero-protector.jpg";
 import type { Language } from "@/i18n/config.ts";
-import { getTranslations } from "@/i18n/utils.ts";
+import {getLocalizedPath, getTranslations} from "@/i18n/utils.ts";
 import {ArrowRight} from "lucide-react";
 import {Button} from "@/components/ui/button.tsx";
 
@@ -39,7 +39,7 @@ const ProductShowcase = ({ lang }: ProductShowcaseProps) => {
           {/* Content */}
           <div className="space-y-6 text-foreground animate-fade-in-up">
             <h3 className="text-3xl font-bold text-primary">{t.home.productShowcase.productName}</h3>
-            <h4 className="text-xl font-semibold text-foreground">{t.home.productShowcase.productSubtitle}</h4>
+            {/*<h4 className="text-xl font-semibold text-foreground">{t.home.productShowcase.productSubtitle}</h4>*/}
 
             <p className="text-lg leading-relaxed">
               {t.home.productShowcase.description}
@@ -51,7 +51,7 @@ const ProductShowcase = ({ lang }: ProductShowcaseProps) => {
               className="group border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               asChild
             >
-              <a href="/laboratory">
+              <a href={getLocalizedPath("/company", lang)}>
                 {t.home.productShowcase.learnMore}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>

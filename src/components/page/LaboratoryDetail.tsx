@@ -1,4 +1,6 @@
-import laboratoryImg from "@/assets/laboratory.jpg";
+import laboratoryImg1 from "@/assets/lab/1.png";
+import laboratoryImg2 from "@/assets/lab/2.png";
+import laboratoryImg3 from "@/assets/lab/3.png";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import {getLocalizedPath, getTranslations} from "@/i18n/utils.ts";
 import type {Language} from "@/i18n/config.ts";
@@ -15,7 +17,7 @@ const LaboratoryDetail = ({ lang }: Props) => {
       id: 1,
       title: t.laboratory.contentBlocks[0].title,
       description: t.laboratory.contentBlocks[0].description,
-      image: laboratoryImg.src,
+      image: laboratoryImg1.src,
       imageOnRight: true,
       bgClass: "bg-background"
     },
@@ -23,7 +25,7 @@ const LaboratoryDetail = ({ lang }: Props) => {
       id: 2,
       title: t.laboratory.contentBlocks[1].title,
       description: t.laboratory.contentBlocks[1].description,
-      image: laboratoryImg.src,
+      image: laboratoryImg2.src,
       imageOnRight: false,
       bgClass: "bg-secondary/20"
     },
@@ -31,18 +33,10 @@ const LaboratoryDetail = ({ lang }: Props) => {
       id: 3,
       title: t.laboratory.contentBlocks[2].title,
       description: t.laboratory.contentBlocks[2].description,
-      image: laboratoryImg.src,
+      image: laboratoryImg3.src,
       imageOnRight: true,
       bgClass: "bg-background"
     },
-    {
-      id: 4,
-      title: t.laboratory.contentBlocks[3].title,
-      description: t.laboratory.contentBlocks[3].description,
-      image: laboratoryImg.src,
-      imageOnRight: false,
-      bgClass: "bg-white"
-    }
   ];
 
   return (

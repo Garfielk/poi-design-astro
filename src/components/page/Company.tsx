@@ -1,4 +1,15 @@
-import laboratoryImg from "@/assets/laboratory.jpg";
+import laboratoryImg from "@/assets/company/banner.jpg";
+import company1 from "@/assets/company/1.jpg";
+import company2 from "@/assets/company/2.jpg";
+import company3 from "@/assets/company/3.jpg";
+import history1995 from "@/assets/history/1995.jpg";
+import history2006 from "@/assets/history/2006.jpg";
+import history2012 from "@/assets/history/2012.jpg";
+import history2016 from "@/assets/history/2016.jpg";
+import history2022 from "@/assets/history/2022.jpg";
+import history2023 from "@/assets/history/2023.jpg";
+// import history2024 from "@/assets/history/2024.jpg";
+import history2025 from "@/assets/history/2025.jpg";
 import type {Language} from "@/i18n/config.ts";
 import {useTranslations} from "@/i18n/utils.ts";
 
@@ -22,6 +33,49 @@ const Company = ({lang}: Props) => {
     }
   ]
 
+  const historyTimeline = [
+    {
+      year: "1995",
+      description: t.company.history.timeline['1995'],
+      image: history1995,
+    },
+    {
+      year: "2006",
+      description: t.company.history.timeline['2006'],
+      image: history2006,
+    },
+    {
+      year: "2012",
+      description: t.company.history.timeline['2012'],
+      image: history2012,
+    },
+    {
+      year: "2016",
+      description: t.company.history.timeline['2016'],
+      image: history2016,
+    },
+    {
+      year: "2022",
+      description: t.company.history.timeline['2022'],
+      image: history2022,
+    },
+    {
+      year: "2023",
+      description: t.company.history.timeline['2023'],
+      image: history2023,
+    },
+    // {
+    //   year: "2024",
+    //   description: t.company.history.timeline['2024'],
+    //   image: history2024,
+    // },
+    {
+      year: "2025",
+      description: t.company.history.timeline['2025'],
+      image: history2025,
+    }
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -36,7 +90,7 @@ const Company = ({lang}: Props) => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-2xl animate-fade-in">
             <h1
-              className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight pb-2">
               {t.company.hero.title}
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground">
@@ -51,29 +105,27 @@ const Company = ({lang}: Props) => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">{t.company.about.title}</h2>
-            <div className="max-w-4xl mx-auto text-muted-foreground space-y-4">
+            <div className="max-w-5xl mx-auto text-muted-foreground space-y-4">
               <p>
                 {t.company.about.paragraph1}
-              </p>
-              <p>
-                {t.company.about.paragraph2}
-              </p>
-              <p>
-                {t.company.about.paragraph3}
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            {[1, 2, 3].map((index) => (
+            {[company1, company2, company3].map((image, index) => (
               <div
                 key={index}
                 className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20"/>
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={image.src}
+                    alt={`Company ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -85,7 +137,7 @@ const Company = ({lang}: Props) => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">{t.company.advantages.title}</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto whitespace-pre-line leading-relaxed">
               {t.company.advantages.description}
             </p>
           </div>
@@ -113,7 +165,7 @@ const Company = ({lang}: Props) => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">{t.company.history.title}</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-left text-lg text-muted-foreground max-w-4xl mx-auto whitespace-pre-line leading-relaxed">
               {t.company.history.description}
             </p>
           </div>
@@ -127,85 +179,66 @@ const Company = ({lang}: Props) => {
 
             {/* Timeline Items */}
             <div className="space-y-16">
-              {/* 1995 */}
-              <div className="relative animate-fade-in group">
-                <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                  <div className="text-right pr-8">
-                    <div
-                      className="inline-block bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
-                      <h3
-                        className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">1995</h3>
-                      <p className="text-xl font-semibold text-muted-foreground">{t.company.history.timeline['1995']}</p>
+              {historyTimeline.map((item, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div
+                    key={item.year}
+                    className="relative animate-fade-in group"
+                    style={{animationDelay: `${index * 0.1}s`}}
+                  >
+                    <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
+                      {isEven ? (
+                        <>
+                          <div className="pr-8">
+                            <div
+                              className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 text-right">
+                              <h3
+                                className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                {item.year}
+                              </h3>
+                              <p className="text-xl font-semibold text-muted-foreground break-words">{item.description}</p>
+                            </div>
+                          </div>
+                          <div className="mt-4 md:mt-0 pl-8">
+                            <div className="rounded-lg h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                              <img
+                                src={item.image.src}
+                                alt={`History ${item.year}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="order-2 md:order-1 mt-4 md:mt-0 pr-8">
+                            <div className="rounded-lg h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                              <img
+                                src={item.image.src}
+                                alt={`History ${item.year}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </div>
+                          <div className="order-1 md:order-2 pl-8">
+                            <div
+                              className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 text-left">
+                              <h3
+                                className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                {item.year}
+                              </h3>
+                              <p className="text-xl font-semibold text-muted-foreground break-words">{item.description}</p>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
-                  </div>
-                  <div className="mt-4 md:mt-0 pl-8">
                     <div
-                      className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg h-48 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"/>
+                      className="absolute left-1/2 top-6 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background hidden md:block group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300"/>
                   </div>
-                </div>
-                <div
-                  className="absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background hidden md:block group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300"/>
-              </div>
-
-              {/* 2006 */}
-              <div className="relative animate-fade-in group" style={{animationDelay: "0.1s"}}>
-                <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                  <div className="order-2 md:order-1 mt-4 md:mt-0 pr-8">
-                    <div
-                      className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg h-48 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"/>
-                  </div>
-                  <div className="order-1 md:order-2 text-left pl-8">
-                    <div
-                      className="inline-block bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
-                      <h3
-                        className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">2006</h3>
-                      <p className="text-xl font-semibold text-muted-foreground">{t.company.history.timeline['2006']}</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background hidden md:block group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300"/>
-              </div>
-
-              {/* 2016 */}
-              <div className="relative animate-fade-in group" style={{animationDelay: "0.2s"}}>
-                <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                  <div className="text-right pr-8">
-                    <div
-                      className="inline-block bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
-                      <h3
-                        className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">2016</h3>
-                      <p className="text-xl font-semibold text-muted-foreground">{t.company.history.timeline['2016']}</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 md:mt-0 pl-8">
-                    <div
-                      className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg h-48 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"/>
-                  </div>
-                </div>
-                <div
-                  className="absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background hidden md:block group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300"/>
-              </div>
-
-              {/* 2022 */}
-              <div className="relative animate-fade-in group" style={{animationDelay: "0.3s"}}>
-                <div className="md:grid md:grid-cols-2 md:gap-8 items-center">
-                  <div className="order-2 md:order-1 mt-4 md:mt-0 pr-8">
-                    <div
-                      className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg h-48 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"/>
-                  </div>
-                  <div className="order-1 md:order-2 text-left pl-8">
-                    <div
-                      className="inline-block bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
-                      <h3
-                        className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">2022</h3>
-                      <p className="text-xl font-semibold text-muted-foreground">{t.company.history.timeline['2022']}</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-background hidden md:block group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300"/>
-              </div>
+                );
+              })}
             </div>
 
             {/* Continue Button */}

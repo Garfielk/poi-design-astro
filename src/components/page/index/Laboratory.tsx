@@ -1,4 +1,4 @@
-import laboratoryImg from "@/assets/laboratory.jpg";
+import laboratoryImg from "@/assets/index/laboratory.jpg";
 import { Button } from "@/components/ui/button.tsx";
 import { ArrowRight } from "lucide-react";
 import type { Language } from "@/i18n/config.ts";

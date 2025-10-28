@@ -8,33 +8,30 @@ export default {
   },
   home: {
     hero: {
-      title1: 'Engineered',
-      title2: 'for the',
-      title3: 'Impact.',
+      title1: 'Passion',
+      title3: ' on Innovation.',
       protection: 'Protection',
-      innovate: 'Innovate',
+      innovate: 'Innovation',
       passion: 'Passion',
       imageAlt: {
-        protector: 'POI Sports Protector',
-        motorcycle: 'Motorcycle Protection',
-        skiing: 'Skiing Protection',
-        mountainBike: 'Mountain Bike Protection',
+        banner1: 'POI design Laboratory',
+        banner2: 'POI design Protection',
       },
     },
     productShowcase: {
       title: 'Company',
-      productName: 'SHEER THINNING PROTECTOR',
+      productName: 'Pioneer in Qualified Manufacturing. ',
       productSubtitle: 'WITH PROTECTOR',
-      description: 'RE ZINGY proprietary technology protects the riders through the features of the molecular bonds under impact, releasing energy through sliding against the impact behavior knows as sheer thinning. The Supermolecule then recombine instantly. Re-setting to Zns.',
+      description: 'Founded in 1995, POI began as a backpack manufacturer before entering the MX and MTB protection sector in 2006. The official establishment of the POI Designs team in 2012 marked a significant expansion into global OEM business and brand recognition. Key developments include launching our TPE and PU protector series in 2016, implementing textile jacket projects, and founding our own laboratory to optimize quality control. Today, we have reformed our management to offer efficient, one-stop ODM services, built on decades of expertise.',
       learnMore: 'Learn More',
     },
     categoryGrid: {
-      title: 'about',
+      title: 'Protector',
       categories: {
-        motorcycle: 'Motorcycle',
+        motorcycle: 'Motocross',
         mountainBike: 'Mountain Bike',
         skiing: 'Skiing',
-        sports: 'Sports',
+        sports: 'Textile Garment',
       },
       label: 'POI',
       explore: 'Explore',
@@ -52,43 +49,42 @@ export default {
     certificates: {
       title: 'CE Certificate',
       subtitle: 'Certified quality and safety standards',
-      additionalInfo: 'All products meet international safety and quality standards',
-      items: {
-        korean: 'Korean Certification',
-        eu: 'EU Declaration',
-        fcc: 'FCC Certificate',
-        ce: 'CE Certificate',
-      },
     },
   },
   footer: {
     brandDescription: 'Engineered protection for athletes. Innovation through passion.',
     quickLinks: 'Quick Links',
     contactUs: 'CONTACT US',
-    email: 'info@poiresearch.com',
-    phone: '+86 532 66748597',
-    phoneSecondary: '+86 19920826825',
-    address: '2/F BLOCK NO.6, XIYUAN ROAD,',
-    addressLine2: 'XIFU\'AN SUBDISTRICT, CHENGYANG DISTRICT,',
-    addressLine3: 'QINGDAO, SHANDONG, CHINA',
-    copyright: '© 2024 POI Research. All rights reserved.',
+    email: 'ella@poidesigns.com',
+    phone: '+86-532-66738557',
+    phoneSecondary: '+86-15020036235',
+    zipCode: '266016',
+    address: 'No.19A JINYUAN ROAD, XIFUZHEN SUBDISTRICT,',
+    addressLine2: 'CHENGYANG DISTRICT,',
+    addressLine3: 'QINGDAO, SHANDONG, CHINA.',
+    copyright: '© 2025 POI Degisns. All rights reserved.',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
   },
   company: {
     hero: {
-      title: 'Pioneer of manufacture.',
-      subtitle: 'Experienced in garment industry since 1995.',
+      title: 'Pioneer in Qualified Manufacturing. ',
+      subtitle: 'Industrial DNA since 1995.',
     },
     about: {
       title: 'ABOUT POI DESIGNS',
-      paragraph1: 'Specializing in manufacturing a comprehensive range ofsports protective equipment and luggage products,ourcompany distinguishes globally with consistently acclaimedquality.',
-      paragraph2: 'Encompassing garments, bags,gloves,and safety gear,our portfolio is underscored by a vigilant approach to "Quality First, Reputation First, and Efficiency",we deliver authoritativesaves to domestic and international clients.',
-      paragraph3: 'Adhering to standardized,professional initiative,andharmain operational principles,we commit ourselves to an ethos of "Technological innovation,standard quality,excellent professionalism,service-oriented commitment,and pragmatic advancement",we relentlessly pursue maximumin partner benefits while providing unparalleled assurance.',
+      paragraph1: `POI team is Serialized manufacturer for protection, providing OEM and ODM service. Inovation and Passion since 2006. Specialized now for MX (Motocross) and MTB  (Moutain bike) protection, Motorcycling garment, such as safety jacket, knee guard, elbow guard, roost guard, back protector, protection short etc...and textile jacket,  Accessories of all kinds of protectors such as TPE, TPV, honeycomb materials to elevate your next adventure.`,
     },
     advantages: {
       title: 'OUR ADVANTAGES',
-      description: 'We focus on the development and production of the sports goods, especially the impact protection goods for bicycle and motorcycle, and kinds of backpacks. We export mostly our products to all over the world and also engage in the domestic market.',
+      description: `Professional Factory: 20 Years Experience;
+Development Team: One-stop Solution Available;
+Open mold: Varies Open Models Ready to Use;
+Suply Chain：Efficiency and Stable;
+Quality Cantrol：IQC,IPQC,OQC;
+Certification: CE Certified;
+POI Lab: Impact Test Available at POI& Long-term Coperation with Ricotest;
+Service: OEM & ODM.`,
       videos: {
         factory: 'POI Factory Introduction',
         lab: 'CE Lab',
@@ -96,12 +92,23 @@ export default {
     },
     history: {
       title: 'OUR HISTORY',
-      description: 'We focus on the development and production of the sports goods, especially the impact protection goods for bicycle and motorcycle, and kinds of backpacks. We export mostly our products to all over the world and also engage in the domestic market.',
+      description: `POI factory was established since 1995, initially running as a backpack factory, and earning a good reputation in this field.
+By 2006, our company began the project of MX and MTB protection for European brands.
+In 2012, POI Designs team was finally established, we continuously expanding oversea OEM business, collaborating with well-known brands in Europe, America, and Asia, and gaining widespread recognition. At the same time, POI Designs China established a partnership with Mr. Yamada from Japan, and the POI Designs protection began to gradually gain popularity in Japan.
+In 2016, to meet the demand of major brands for stability and innovation in protection, POI Designs started to expand more inserted protectors, such as the TPE and PU series.
+In 2020, our company reformed the management system and was committed to building a one-stop service team, embedding efficiency and professionalism deeply into our operations.
+In 2022, POI Designs completed the implementation of textile jacket projects.
+In 2023, with the establishment of POI Designs' own laboratory, the QC system for protective projects was further optimized.
+In 2024, POI ODM service department was established, taking the development and service work to a new level.
+In 2025, POI Designs further upgraded the supply chain system.`,
       timeline: {
-        1995: 'Factory established',
-        2006: 'Off-road',
-        2016: 'Accessories PU, TPE,etc.',
-        2022: 'Garment project',
+        1995: 'Factory Established',
+        2006: 'Protection Project Started',
+        2012: 'POI China and Japan Established',
+        2016: 'Accessories PU,TPE,etc.',
+        2022: 'Textile Jacket Projects',
+        2023: 'POI Designs Laboratory',
+        2025: 'POI ODM Service Department&upgraded the supply chain system',
       },
       continue: 'Continue...',
     },
@@ -145,13 +152,13 @@ export default {
       },
     },
     confidence: {
-      title: 'What constitutes the foundation of our product confidence?',
-      description: "Our products' superior performance originates from:",
+      title: 'What constitutes the foundation ofour product confidence?',
+      description: "Our products'superior performance originates from:",
       imageAlt: 'Product Structure',
       points: [
         'Evidence-based validation through accelerated lifecycle testing',
         'Data-driven design optimization leveraging experimental analytics',
-        'Cloud-loop quality evolution via iterative design, prototype and enhancement',
+        'Closed-loop quality evolution via iterative design-prototype-test-enhancement',
       ],
     },
   },
@@ -162,32 +169,42 @@ export default {
     },
     contentBlocks: [
       {
-        title: 'Test data empirically validates performance',
+        title: 'Data-Driven Performance Validation',
         description:
-          "Our advanced laboratory is equipped with state-of-the-art impact machine and a programmable constant temperature and humidity test chamber.\n\nWe test the product's impact resistance under different temperature and humidity conditions and will improve the product based on the test results.\n\nErgonomic design principles integrated with scientifically validated test data deliver exceptional product performance and user comfort.",
+          "Product test data provides the most accurate quantification of performance.\n" +
+          "Test data empirically validates performance\n" +
+          "We have our own independent laboratory,equipped with impact machine and a programmable constant temperature and humidity test chamber.\n" +
+          "\n" +
+          "We test the product's impact resistance under different temperature and humidity conditions and will improve the product based on the test results.\n" +
+          "Ergonomic design principles integrated with scientifically validated test data deliver exceptional product performance and enhanced comfort.",
       },
       {
         title:
-          'Through which engineering methodologies can we enhance product performance metrics?',
+          'Multidimensional Performance Optimization',
         description:
-          'Through multidimensional analysis of quantitative data across various test trails, comprehensive experimental evaluation and critical examination of structural parameters, we can achieve targeted reinforcement of structural strength.\n\nOur methodology combines advanced testing protocols with data-driven insights to optimize protection performance.',
-      },
-      {
-        title: 'How do we implement this process?',
-        description:
-          'Our laboratory performs global impact resistance testing under programmable temperature and humidity conditions. By leveraging customizable algorithm test databases, we enhance product reliability via testing experimental insights back into our design process.\n\nThis iterative approach ensures continuous improvement and superior product quality.',
+          '● Through which engineering methodologies can\n' +
+          'we enhance product performance metrics?\n' +
+          'Through multidimensional analysis of quantitative data across varying test levels(impact/fatigue/environmental)and criticalregions,we willoptimize and refine product structures toachieve targeted reinforcement of structural strength.\n' +
+          '● How do we implement this process?\n' +
+          '\n' +
+          'Our laboratory performs graded impact resistance testing under programmable temperature-humidity conditions.By leveraging continuously expanding test databases,we enhance product reliability while feeding experimental insights back into design iterations for precision design refinements.',
       },
       {
         title: 'About the test',
         description:
-          'Our R&D center utilizes specialized impact testing equipment to rigorously validate product quality and reliability.\n\nOur facility leverages systematic analysis, providing actionable insights for new product development.\n\nWe are committed to continuous refinement of our offerings to enhance competitive positioning in the market.',
+          'Our R&D center utilizes specialized impact testing equipment to rigorously validate product quality andreliability.\n' +
+          'All test data undergoes systematic analysis,providing actionable insights for new product development.\n' +
+          'We are committed to continuous refinement of our offerings to enhance competitive positioning in the market.',
       },
     ],
   },
   contact: {
     hero: {
       title: 'Contact',
-      description: 'Please use the contact information below to connect with our team. We will review your message and respond based on your specific needs and requirements.',
+      description: 'Please use the contact form below to connect ' +
+        'with our team.We will review your submission ' +
+        'and provide a response depending on your ' +
+        'specific needs and requirements.',
       imageAlt: 'Contact',
     },
     details: {
