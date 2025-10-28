@@ -20,5 +20,10 @@ const postCN = defineCollection({
   schema: postSchema,
 });
 
+// 产品图片集合 - 从 products 目录加载所有图片
+const productImages = defineCollection({
+  loader: glob({ pattern: "**/*.{jpg,jpeg,png,webp,gif}",  base: "./src/products" }),
+});
+
 // 4. 导出一个 `collections` 对象来注册你的集合
-export const collections = { post, postCN };
+export const collections = { post, postCN, productImages };

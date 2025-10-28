@@ -2,11 +2,53 @@
 import MainLayout from '@/layouts/main.astro';
 import ProductCategoryPage from "@/components/page/ProductCategory.tsx"
 import type {Language} from "@/i18n/config.ts";
+import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const categories = ['motorcycle', 'mountain-bike', 'skiing', 'textile-garment'];
+  // 从内容集合获取所有产品图片
+  const productImages = await getCollection('productImages');
+
+  console.log(productImages);
+
+  // 从图片路径中提取分类（目录结构）
+  const categorySet = new Set<string>();
+  const categoryProducts: Record<string, Array<{
+    id: string;
+    name: string;
+    image: string;
+    subcategory?: string;
+  }>> = {};
+
+  productImages.forEach((image) => {
+    // image.id 格式例如: "motorcycle/racing/product-1"
+    const pathParts = image.id.split('/');
+
+    if (pathParts.length >= 1) {
+      const category = pathParts[0];
+      categorySet.add(category);
+
+      if (!categoryProducts[category]) {
+        categoryProducts[category] = [];
+      }
+
+      // 构建产品对象
+      const productName = pathParts[pathParts.length - 1]
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      categoryProducts[category].push({
+        id: image.id,
+        name: productName,
+        image: `/src/products/${image.id}`,
+        subcategory: pathParts.length > 1 ? pathParts[1] : undefined,
+      });
+    }
+  });
+
+  const categories = Array.from(categorySet);
   const languages = [
     { param: undefined, lang: 'en' as Language },
     { param: 'zh-CN', lang: 'zh-CN' as Language },
@@ -15,15 +57,29 @@ export async function getStaticPaths() {
   return languages.flatMap(({ param, lang }) =>
     categories.map(category => ({
       params: { lang: param, category },
-      props: { lang }
+      props: {
+        lang,
+        products: categoryProducts[category] || [],
+        allCategories: categories,
+      }
     }))
   );
 }
 
-const { lang } = Astro.props as {lang: 'en' | 'zh-CN'};
+const { lang, products, allCategories } = Astro.props as {
+  lang: 'en' | 'zh-CN';
+  products: Array<{id: string; name: string; image: string; subcategory?: string}>;
+  allCategories: string[];
+};
 const { category } = Astro.params;
 ---
 
 <MainLayout lang={lang}>
-  <ProductCategoryPage lang={lang} category={category} client:load />
+  <ProductCategoryPage
+    lang={lang}
+    category={category}
+    products={products}
+    allCategories={allCategories}
+    client:load
+  />
 </MainLayout>
