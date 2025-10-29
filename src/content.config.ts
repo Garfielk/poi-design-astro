@@ -20,9 +20,15 @@ const postCN = defineCollection({
   schema: postSchema,
 });
 
-// 产品图片集合 - 从 products 目录加载所有图片
+const productImageSchema = z.array(z.object({
+  name: z.string(),
+  src: z.string(),
+}));
+
+// 产品图片集合 - 从 products 目录加载图片清单
 const productImages = defineCollection({
-  loader: glob({ pattern: "**/*.{jpg,jpeg,png,webp,gif}",  base: "./src/products" }),
+  loader: glob({ pattern: "**/images.json", base: "./src/products" }),
+  schema: productImageSchema,
 });
 
 // 4. 导出一个 `collections` 对象来注册你的集合
