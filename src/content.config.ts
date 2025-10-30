@@ -20,10 +20,15 @@ const postCN = defineCollection({
   schema: postSchema,
 });
 
-const productImageSchema = z.array(z.object({
+const productImageSchema = z.object({
   name: z.string(),
-  src: z.string(),
-}));
+  productImages: z.array(z.object({
+    name: z.string(),
+    src: z.string(),
+  })),
+});
+
+
 
 // 产品图片集合 - 从 products 目录加载图片清单
 const productImages = defineCollection({

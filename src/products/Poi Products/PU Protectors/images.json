@@ -1,30 +1,33 @@
-[
-  {
-    "name": "Neck Guard",
-    "src": "Poi Products/PU Protectors/Neck Guard.png"
-  },
-  {
-    "name": "PN001",
-    "src": "Poi Products/PU Protectors/PN001.png"
-  },
-  {
-    "name": "PN003",
-    "src": "Poi Products/PU Protectors/PN003.png"
-  },
-  {
-    "name": "PN006",
-    "src": "Poi Products/PU Protectors/PN006.jpg"
-  },
-  {
-    "name": "PN007",
-    "src": "Poi Products/PU Protectors/PN007.png"
-  },
-  {
-    "name": "PN008_6d27",
-    "src": "Poi Products/PU Protectors/PN008_6d27.png"
-  },
-  {
-    "name": "PN009_12l6",
-    "src": "Poi Products/PU Protectors/PN009_12l6.png"
-  }
-]
+{
+  "name": "PU Protectors",
+  "productImages": [
+    {
+      "name": "Neck Guard",
+      "src": "Poi Products/PU Protectors/Neck Guard.png"
+    },
+    {
+      "name": "PN001",
+      "src": "Poi Products/PU Protectors/PN001.png"
+    },
+    {
+      "name": "PN003",
+      "src": "Poi Products/PU Protectors/PN003.png"
+    },
+    {
+      "name": "PN006",
+      "src": "Poi Products/PU Protectors/PN006.jpg"
+    },
+    {
+      "name": "PN007",
+      "src": "Poi Products/PU Protectors/PN007.png"
+    },
+    {
+      "name": "PN008_6d27",
+      "src": "Poi Products/PU Protectors/PN008_6d27.png"
+    },
+    {
+      "name": "PN009_12l6",
+      "src": "Poi Products/PU Protectors/PN009_12l6.png"
+    }
+  ]
+}

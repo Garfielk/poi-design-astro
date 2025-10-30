@@ -1,18 +1,22 @@
-[
-  {
-    "name": "Elbow Guard",
-    "src": "Partner Brands/Knee&Elbow/Elbow Guard.jpg"
-  },
-  {
-    "name": "Knee Guard",
-    "src": "Partner Brands/Knee&Elbow/Knee Guard.jpg"
-  },
-  {
-    "name": "Knee Guard（Kid）",
-    "src": "Partner Brands/Knee&Elbow/Knee Guard（Kid）.jpg"
-  },
-  {
-    "name": "Knee Protector",
-    "src": "Partner Brands/Knee&Elbow/Knee Protector.png"
-  }
-]
+{
+  "name": "Knee&Elbow",
+  "productImages": [
+    {
+      "name": "Elbow Guard",
+      "src": "Partner Brands/Knee&Elbow/Elbow Guard.jpg"
+    },
+    {
+      "name": "Knee Guard",
+      "src": "Partner Brands/Knee&Elbow/Knee Guard.jpg"
+    },
+    {
+      "name": "Knee Guard（Kid）",
+      "src": "Partner Brands/Knee&Elbow/Knee Guard（Kid）.jpg"
+    },
+    {
+      "name": "Knee Protector",
+      "src": "Partner Brands/Knee&Elbow/Knee Protector.png"
+    }
+  ]
+
+}

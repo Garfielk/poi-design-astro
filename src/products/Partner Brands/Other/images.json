@@ -1,26 +1,29 @@
-[
-  {
-    "name": "Backpack-02",
-    "src": "Partner Brands/Other/Backpack-02.png"
-  },
-  {
-    "name": "Backpack",
-    "src": "Partner Brands/Other/Backpack.png"
-  },
-  {
-    "name": "Fishing Belt-02",
-    "src": "Partner Brands/Other/Fishing Belt-02.jpg"
-  },
-  {
-    "name": "Fishing Belt",
-    "src": "Partner Brands/Other/Fishing Belt.jpg"
-  },
-  {
-    "name": "Neck Brace",
-    "src": "Partner Brands/Other/Neck Brace.png"
-  },
-  {
-    "name": "Shoulder Harness",
-    "src": "Partner Brands/Other/Shoulder Harness.jpg"
-  }
-]
+{
+  "name": "Other",
+  "productImages": [
+    {
+      "name": "Backpack-02",
+      "src": "Partner Brands/Other/Backpack-02.png"
+    },
+    {
+      "name": "Backpack",
+      "src": "Partner Brands/Other/Backpack.png"
+    },
+    {
+      "name": "Fishing Belt-02",
+      "src": "Partner Brands/Other/Fishing Belt-02.jpg"
+    },
+    {
+      "name": "Fishing Belt",
+      "src": "Partner Brands/Other/Fishing Belt.jpg"
+    },
+    {
+      "name": "Neck Brace",
+      "src": "Partner Brands/Other/Neck Brace.png"
+    },
+    {
+      "name": "Shoulder Harness",
+      "src": "Partner Brands/Other/Shoulder Harness.jpg"
+    }
+  ]
+}

@@ -28,7 +28,9 @@ export async function getStaticPaths() {
   }>> = {};
 
   productImageCollections.forEach((entry) => {
+
     const pathParts = entry.id.split('/');
+    const categoryName = entry.filePath?.split('/')[2]
 
     if (pathParts.length === 0) {
       return;
@@ -38,13 +40,15 @@ export async function getStaticPaths() {
     const subPathParts = pathParts.slice(1, -1);
     const subcategory = subPathParts.length > 0 ? subPathParts.join('/') : ''
 
-    categoryTree[category] = categoryTree[category] || { id: subcategory, name: category, children: {} };
+    const {name, productImages} = entry.data
+
+    categoryTree[category] = categoryTree[category] || { id: category, name: categoryName, children: {} };
     if (categoryTree[category].children === null) {
       categoryTree[category].children = {};
     }
     categoryTree[category].children![subcategory] = {
       id: subcategory,
-      name: subcategory,
+      name: name,
       children: null
     };
 
@@ -54,7 +58,7 @@ export async function getStaticPaths() {
       categoryProducts[subcategory] = [];
     }
 
-    entry.data.forEach(({ name, src }) => {
+    productImages.forEach(({ name, src }) => {
       const productId = src.replace(/\.[^/.]+$/, '');
 
       categoryProducts[subcategory].push({
