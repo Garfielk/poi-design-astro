@@ -63,7 +63,7 @@ const ProductCategories = ({ lang }: CategoryGridProps) => {
             {/*<div className="text-accent font-semibold">{category.label}</div>*/}
 
             {/* Arrow Indicator */}
-            <a href={getLocalizedPath(`/products/${category.path}`, lang)} className="mt-4 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" >
+            <a href={getLocalizedPath(`products/kneeelbow-guard`, lang)} className="mt-4 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" >
               <span className="text-sm">{t.home.categoryGrid.explore}</span>
               <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </a>

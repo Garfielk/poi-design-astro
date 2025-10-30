@@ -120,6 +120,12 @@ In 2025, POI Designs further upgraded the supply chain system.`,
         product: 'Protector Product',
       },
     },
+    category: {
+      sidebarTitle: 'Product Categories',
+      closeMenu: 'Close menu',
+      openMenu: 'Open menu',
+      emptyState: 'Select a category from the sidebar to view products.',
+    },
     features: [
       {
         title: 'BREATHABLE',

@@ -1,6 +1,6 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-import ProductCategoryPage from "@/components/page/ProductCategory.tsx"
+import ProductCategoryPage, {type ProductItem} from "@/components/page/ProductCategory.tsx"
 import type {Language} from "@/i18n/config.ts";
 import { getCollection } from 'astro:content';
 
@@ -14,18 +14,11 @@ type CategoryItem = {
 
 export async function getStaticPaths() {
   const productImageCollections = await getCollection<'productImages'>('productImages');
-  console.log(productImageCollections);
 
   // 从图片路径中提取分类（目录结构）
   const categorySet = new Set<string>();
   const categoryTree: Record<string, CategoryItem> = {}
-  const categoryProducts: Record<string, Array<{
-    id: string;
-    name: string;
-    image: string;
-    parent: string;
-    subcategory?: string;
-  }>> = {};
+  const categoryProducts: Record<string, ProductItem[]> = {};
 
   productImageCollections.forEach((entry) => {
 
@@ -65,8 +58,8 @@ export async function getStaticPaths() {
         id: productId,
         name,
         image: `/src/products/${src}`,
-        subcategory,
-        parent: category
+        parent: category,
+        categoryName: name
       });
     });
   });
@@ -77,7 +70,6 @@ export async function getStaticPaths() {
     { param: 'zh-CN', lang: 'zh-CN' as Language },
   ];
 
-  console.log(categories);
 
   return languages.flatMap(({param, lang}) =>
     categories.map(category => ({
@@ -93,7 +85,7 @@ export async function getStaticPaths() {
 
 const { lang, products, categoryTree } = Astro.props as {
   lang: 'en' | 'zh-CN';
-  products: Array<{id: string; name: string; image: string; subcategory?: string}>;
+  products: ProductItem[];
   categoryTree: Record<string, CategoryItem>;
 };
 const { category } = Astro.params;

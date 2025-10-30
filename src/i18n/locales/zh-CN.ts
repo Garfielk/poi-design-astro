@@ -121,6 +121,12 @@ POI 实验室：可进行冲击测试；与 Ricotest 长期合作；
         product: '防护产品',
       },
     },
+    category: {
+      sidebarTitle: '产品分类',
+      closeMenu: '关闭菜单',
+      openMenu: '打开菜单',
+      emptyState: '请从侧边栏选择一个分类查看产品',
+    },
     features: [
       {
         title: '透气',

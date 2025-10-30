@@ -10,13 +10,13 @@ type CategoryTreeNode = {
   children: Record<string, CategoryTreeNode> | null;
 };
 
-interface ProductItem {
+export interface ProductItem {
   id: string;
   name: string;
   image: string;
   parent: string;
-  subcategory?: string;
   description?: string;
+  categoryName?: string;
 }
 
 interface Props {
@@ -38,7 +38,7 @@ interface SidebarProps {
   containerRef: RefObject<HTMLDivElement> | null;
 }
 
-const PRIMARY_CATEGORY_ORDER = ["Poi Products", "Partner Brands"] as const;
+const PRIMARY_CATEGORY_ORDER = ["poi-products", "partner-brands"] as const;
 
 const getOrderedParentEntries = (
   categoryTree: Record<string, CategoryTreeNode>,
@@ -85,6 +85,7 @@ const Sidebar = ({
   onClose,
   containerRef,
 }: SidebarProps) => {
+  const { t } = useTranslations(lang);
   const [sidebarLeft, setSidebarLeft] = useState<number | null>(null);
 
   useEffect(() => {
@@ -130,7 +131,6 @@ const Sidebar = ({
     };
   }, [containerRef]);
 
-  const sidebarTitle = lang === "zh-CN" ? "产品分类" : "Product Categories";
   const sidebarStyle = sidebarLeft !== null ? { left: sidebarLeft } : undefined;
 
   return (
@@ -157,12 +157,12 @@ const Sidebar = ({
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted lg:hidden"
-            aria-label={lang === "zh-CN" ? "关闭菜单" : "Close menu"}
+            aria-label={t.products.category.closeMenu}
           >
             <X className="h-5 w-5" />
           </button>
 
-          <h2 className="text-lg font-semibold text-foreground mb-4">{sidebarTitle}</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-4">{t.products.category.sidebarTitle}</h2>
 
           <ul className="space-y-1">
             {parentEntries.map(([parentKey, node]) => {
@@ -254,7 +254,7 @@ const ProductCategory = ({
   categoryTree = {},
 }: Props) => {
   const { t } = useTranslations(lang);
-  const layoutRef = useRef<HTMLDivElement | null>(null);
+  const layoutRef = useRef<HTMLDivElement>(null!);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const {
@@ -323,7 +323,7 @@ const ProductCategory = ({
       (products ?? []).map((product) => ({
         ...product,
         description:
-          product.description ?? product.subcategory ?? product.parent ?? "",
+          product.description ?? product.categoryName ?? '',
       })),
     [products],
   );
@@ -332,10 +332,6 @@ const ProductCategory = ({
   const breadcrumbChildLabel = activeChildNode?.name ?? selectedChildKey ?? "";
   const pageTitle =
     activeChildNode?.name ?? activeParentNode?.name ?? t.nav.products;
-  const emptyStateMessage =
-    lang === "zh-CN"
-      ? "请从侧边栏选择一个分类查看产品"
-      : "Select a category from the sidebar to view products.";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
@@ -363,7 +359,7 @@ const ProductCategory = ({
               <button
                 onClick={() => setIsSidebarOpen(true)}
                 className="fixed top-16 left-4 z-20 p-2 bg-card border border-border rounded-lg shadow-lg lg:hidden hover:bg-muted transition-colors"
-                aria-label={lang === "zh-CN" ? "打开菜单" : "Open menu"}
+                aria-label={t.products.category.openMenu}
               >
                 <Menu className="h-5 w-5" />
               </button>
@@ -418,7 +414,7 @@ const ProductCategory = ({
                   </div>
                 ) : (
                   <div className="text-center py-12">
-                    <p className="text-muted-foreground">{emptyStateMessage}</p>
+                    <p className="text-muted-foreground">{t.products.category.emptyState}</p>
                   </div>
                 )}
               </div>
