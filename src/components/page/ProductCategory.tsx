@@ -28,7 +28,7 @@ interface Props {
 
 interface SidebarProps {
   lang: Language;
-  categoryTree: Record<string, CategoryTreeNode>;
+  parentEntries: Array<[string, CategoryTreeNode]>;
   selectedCategory?: string | null;
   activeParentKey?: string | null;
   openParentKey?: string | null;
@@ -38,9 +38,45 @@ interface SidebarProps {
   containerRef: RefObject<HTMLDivElement> | null;
 }
 
+const PRIMARY_CATEGORY_ORDER = ["Poi Products", "Partner Brands"] as const;
+
+const getOrderedParentEntries = (
+  categoryTree: Record<string, CategoryTreeNode>,
+  lang: Language,
+) => {
+  const orderMap = new Map<string, number>(
+    PRIMARY_CATEGORY_ORDER.map((category, index) => [category.toLowerCase(), index]),
+  );
+  const collator = new Intl.Collator(lang === "zh-CN" ? "zh-CN" : "en", {
+    sensitivity: "base",
+    usage: "sort",
+  });
+
+  return Object.entries(categoryTree).sort(([keyA], [keyB]) => {
+    const normalizedA = keyA.toLowerCase();
+    const normalizedB = keyB.toLowerCase();
+    const orderA = orderMap.get(normalizedA);
+    const orderB = orderMap.get(normalizedB);
+
+    if (orderA !== undefined && orderB !== undefined) {
+      return orderA - orderB;
+    }
+
+    if (orderA !== undefined) {
+      return -1;
+    }
+
+    if (orderB !== undefined) {
+      return 1;
+    }
+
+    return collator.compare(keyA, keyB);
+  });
+};
+
 const Sidebar = ({
   lang,
-  categoryTree,
+  parentEntries,
   selectedCategory,
   activeParentKey,
   openParentKey,
@@ -95,7 +131,6 @@ const Sidebar = ({
   }, [containerRef]);
 
   const sidebarTitle = lang === "zh-CN" ? "产品分类" : "Product Categories";
-  const parentEntries = Object.entries(categoryTree);
   const sidebarStyle = sidebarLeft !== null ? { left: sidebarLeft } : undefined;
 
   return (
@@ -263,10 +298,12 @@ const ProductCategory = ({
     };
   }, [categoryTree, category]);
 
-  const firstParentKey = useMemo(
-    () => Object.keys(categoryTree)[0] ?? null,
-    [categoryTree],
+  const orderedParentEntries = useMemo(
+    () => getOrderedParentEntries(categoryTree, lang),
+    [categoryTree, lang],
   );
+
+  const firstParentKey = orderedParentEntries[0]?.[0] ?? null;
 
   const activeParentKey = selectedParentKey ?? firstParentKey;
   const activeParentNode =
@@ -310,7 +347,7 @@ const ProductCategory = ({
           >
             <Sidebar
               lang={lang}
-              categoryTree={categoryTree}
+              parentEntries={orderedParentEntries}
               selectedCategory={category}
               activeParentKey={activeParentKey}
               openParentKey={openParentKey}
