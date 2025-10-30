@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import type { Language } from "@/i18n/config.ts";
@@ -35,6 +35,7 @@ interface SidebarProps {
   onParentToggle: (parentKey: string, nextOpen: boolean) => void;
   isOpen: boolean;
   onClose: () => void;
+  containerRef: RefObject<HTMLDivElement> | null;
 }
 
 const Sidebar = ({
@@ -46,9 +47,56 @@ const Sidebar = ({
   onParentToggle,
   isOpen,
   onClose,
+  containerRef,
 }: SidebarProps) => {
+  const [sidebarLeft, setSidebarLeft] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+
+    const updateSidebarPosition = () => {
+      if (!mediaQuery.matches) {
+        setSidebarLeft(null);
+        return;
+      }
+
+      const containerElement = containerRef?.current;
+      if (!containerElement) {
+        return;
+      }
+
+      const rect = containerElement.getBoundingClientRect();
+      setSidebarLeft(rect.left + window.scrollX);
+    };
+
+    updateSidebarPosition();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", updateSidebarPosition);
+    } else if (typeof mediaQuery.addListener === "function") {
+      mediaQuery.addListener(updateSidebarPosition);
+    }
+
+    window.addEventListener("resize", updateSidebarPosition);
+
+    return () => {
+      if (typeof mediaQuery.removeEventListener === "function") {
+        mediaQuery.removeEventListener("change", updateSidebarPosition);
+      } else if (typeof mediaQuery.removeListener === "function") {
+        mediaQuery.removeListener(updateSidebarPosition);
+      }
+
+      window.removeEventListener("resize", updateSidebarPosition);
+    };
+  }, [containerRef]);
+
   const sidebarTitle = lang === "zh-CN" ? "产品分类" : "Product Categories";
   const parentEntries = Object.entries(categoryTree);
+  const sidebarStyle = sidebarLeft !== null ? { left: sidebarLeft } : undefined;
 
   return (
     <>
@@ -64,12 +112,13 @@ const Sidebar = ({
           fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:static lg:inset-auto lg:z-auto lg:w-full lg:translate-x-0 lg:transform-none
+          lg:inset-auto lg:top-1/2 lg:z-40 lg:w-64 lg:translate-x-0 lg:-translate-y-1/2
           lg:border lg:border-border lg:bg-card lg:rounded-2xl lg:shadow-sm
-          lg:min-h-[calc(100vh-8rem)] lg:overflow-hidden
+          lg:max-h-[calc(100vh-4rem)] lg:overflow-hidden
         `}
+        style={sidebarStyle}
       >
-        <nav className="flex h-full flex-col overflow-y-auto p-6 pt-20 lg:pt-6 lg:pb-6 lg:pr-2 lg:max-h-[calc(100vh-8rem)]">
+        <nav className="flex h-full flex-col overflow-y-auto p-6 pt-20 lg:pt-6 lg:pb-6 lg:pr-2 lg:max-h-[calc(100vh-4rem)]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted lg:hidden"
@@ -126,7 +175,7 @@ const Sidebar = ({
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-1">
-                      <ul className="ml-4 space-y-1 border-l-2 border-border pl-2">
+                      <ul className="ml-4 space-y-1 pl-2">
                         {childEntries.map(([childKey, childNode]) => {
                           const isChildActive = childKey === selectedCategory;
                           const childHref = getLocalizedPath(
@@ -170,6 +219,7 @@ const ProductCategory = ({
   categoryTree = {},
 }: Props) => {
   const { t } = useTranslations(lang);
+  const layoutRef = useRef<HTMLDivElement | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const {
@@ -254,7 +304,10 @@ const ProductCategory = ({
     <div className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="pt-16 lg:pt-20 pb-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-10">
+          <div
+            ref={layoutRef}
+            className="relative lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-10"
+          >
             <Sidebar
               lang={lang}
               categoryTree={categoryTree}
@@ -266,6 +319,7 @@ const ProductCategory = ({
               }}
               isOpen={isSidebarOpen}
               onClose={() => setIsSidebarOpen(false)}
+              containerRef={layoutRef}
             />
 
             <main className="relative lg:col-start-2 lg:flex lg:flex-col lg:min-h-[calc(100vh-8rem)] lg:overflow-hidden py-8 lg:py-12">
