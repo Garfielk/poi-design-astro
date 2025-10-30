@@ -61,14 +61,15 @@ const Sidebar = ({
 
       <aside
         className={`
-          fixed inset-y-0 lg:top-16 left-0 z-50 lg:z-30
-          w-64 bg-card border-r border-border
+          fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border
           transform transition-transform duration-300 ease-in-out
-          lg:transform-none lg:h-[calc(100vh-4rem)]
-          ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:static lg:inset-auto lg:z-auto lg:w-full lg:translate-x-0 lg:transform-none
+          lg:border lg:border-border lg:bg-card lg:rounded-2xl lg:shadow-sm
+          lg:min-h-[calc(100vh-8rem)] lg:overflow-hidden
         `}
       >
-        <nav className="h-full overflow-y-auto p-6 pt-20 lg:pt-6">
+        <nav className="flex h-full flex-col overflow-y-auto p-6 pt-20 lg:pt-6 lg:pb-6 lg:pr-2 lg:max-h-[calc(100vh-8rem)]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted lg:hidden"
@@ -250,84 +251,90 @@ const ProductCategory = ({
       : "Select a category from the sidebar to view products.";
 
   return (
-    <div className="min-h-screen">
-      <Sidebar
-        lang={lang}
-        categoryTree={categoryTree}
-        selectedCategory={category}
-        activeParentKey={activeParentKey}
-        openParentKey={openParentKey}
-        onParentToggle={(parentKey, open) => {
-          setOpenParentKey(open ? parentKey : null);
-        }}
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+    <div className="min-h-screen bg-gradient-to-b from-background via-muted/20 to-background">
+      <div className="pt-16 lg:pt-20 pb-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-10">
+            <Sidebar
+              lang={lang}
+              categoryTree={categoryTree}
+              selectedCategory={category}
+              activeParentKey={activeParentKey}
+              openParentKey={openParentKey}
+              onParentToggle={(parentKey, open) => {
+                setOpenParentKey(open ? parentKey : null);
+              }}
+              isOpen={isSidebarOpen}
+              onClose={() => setIsSidebarOpen(false)}
+            />
 
-      <main className="pt-16 lg:pl-64 bg-gradient-to-b from-background via-muted/20 to-background min-h-screen">
-        <button
-          onClick={() => setIsSidebarOpen(true)}
-          className="fixed top-16 left-4 z-20 p-2 bg-card border border-border rounded-lg shadow-lg lg:hidden hover:bg-muted transition-colors"
-          aria-label={lang === "zh-CN" ? "打开菜单" : "Open menu"}
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+            <main className="relative lg:col-start-2 lg:flex lg:flex-col lg:min-h-[calc(100vh-8rem)] lg:overflow-hidden py-8 lg:py-12">
+              <button
+                onClick={() => setIsSidebarOpen(true)}
+                className="fixed top-16 left-4 z-20 p-2 bg-card border border-border rounded-lg shadow-lg lg:hidden hover:bg-muted transition-colors"
+                aria-label={lang === "zh-CN" ? "打开菜单" : "Open menu"}
+              >
+                <Menu className="h-5 w-5" />
+              </button>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-          <div className="mb-6 lg:mb-8">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-              <span>{breadcrumbParentLabel}</span>
-              {breadcrumbChildLabel && (
-                <>
-                  <span>/</span>
-                  <span className="text-foreground font-medium">
-                    {breadcrumbChildLabel}
-                  </span>
-                </>
-              )}
-            </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-              {pageTitle}
-            </h1>
-          </div>
-
-          {normalizedProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 max-w-7xl">
-              {normalizedProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="group bg-card rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/50"
-                >
-                  <div className="relative aspect-video overflow-hidden bg-muted">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-
-                  <div className="p-3 sm:p-4 space-y-1.5 sm:space-y-2">
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {product.name}
-                    </h3>
-                    {product.description && (
-                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                        {product.description}
-                      </p>
-                    )}
-                  </div>
+              <div className="mb-6 lg:mb-8 shrink-0">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <span>{breadcrumbParentLabel}</span>
+                  {breadcrumbChildLabel && (
+                    <>
+                      <span>/</span>
+                      <span className="text-foreground font-medium">
+                        {breadcrumbChildLabel}
+                      </span>
+                    </>
+                  )}
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">{emptyStateMessage}</p>
-            </div>
-          )}
+                <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
+                  {pageTitle}
+                </h1>
+              </div>
+
+              <div className="flex-1 lg:overflow-y-auto lg:pr-2">
+                {normalizedProducts.length > 0 ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 max-w-7xl pb-6 lg:pb-8">
+                    {normalizedProducts.map((product) => (
+                      <div
+                        key={product.id}
+                        className="group bg-card rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/50"
+                      >
+                        <div className="relative aspect-video overflow-hidden bg-muted">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+
+                        <div className="p-3 sm:p-4 space-y-1.5 sm:space-y-2">
+                          <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                            {product.name}
+                          </h3>
+                          {product.description && (
+                            <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                              {product.description}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-muted-foreground">{emptyStateMessage}</p>
+                  </div>
+                )}
+              </div>
+            </main>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
