@@ -6,16 +6,24 @@ import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
+type CategoryItem = {
+  id: string;
+  name: string;
+  children: Record<string, CategoryItem> | null;
+};
+
 export async function getStaticPaths() {
-  // 从内容集合获取所有产品图片清单
   const productImageCollections = await getCollection<'productImages'>('productImages');
+  console.log(productImageCollections);
 
   // 从图片路径中提取分类（目录结构）
   const categorySet = new Set<string>();
+  const categoryTree: Record<string, CategoryItem> = {}
   const categoryProducts: Record<string, Array<{
     id: string;
     name: string;
     image: string;
+    parent: string;
     subcategory?: string;
   }>> = {};
 
@@ -28,22 +36,33 @@ export async function getStaticPaths() {
 
     const category = pathParts[0];
     const subPathParts = pathParts.slice(1, -1);
-    const subcategory = subPathParts.length > 0 ? subPathParts.join('/') : undefined;
+    const subcategory = subPathParts.length > 0 ? subPathParts.join('/') : ''
 
-    categorySet.add(category);
+    categoryTree[category] = categoryTree[category] || { id: subcategory, name: category, children: {} };
+    if (categoryTree[category].children === null) {
+      categoryTree[category].children = {};
+    }
+    categoryTree[category].children![subcategory] = {
+      id: subcategory,
+      name: subcategory,
+      children: null
+    };
 
-    if (!categoryProducts[category]) {
-      categoryProducts[category] = [];
+    categorySet.add(subcategory);
+
+    if (!categoryProducts[subcategory]) {
+      categoryProducts[subcategory] = [];
     }
 
     entry.data.forEach(({ name, src }) => {
       const productId = src.replace(/\.[^/.]+$/, '');
 
-      categoryProducts[category].push({
+      categoryProducts[subcategory].push({
         id: productId,
         name,
         image: `/src/products/${src}`,
         subcategory,
+        parent: category
       });
     });
   });
@@ -54,22 +73,24 @@ export async function getStaticPaths() {
     { param: 'zh-CN', lang: 'zh-CN' as Language },
   ];
 
-  return languages.flatMap(({ param, lang }) =>
+  console.log(categories);
+
+  return languages.flatMap(({param, lang}) =>
     categories.map(category => ({
-      params: { lang: param, category },
+      params: {lang: param, category},
       props: {
         lang,
         products: categoryProducts[category] || [],
-        allCategories: categories,
+        categoryTree
       }
     }))
   );
 }
 
-const { lang, products, allCategories } = Astro.props as {
+const { lang, products, categoryTree } = Astro.props as {
   lang: 'en' | 'zh-CN';
   products: Array<{id: string; name: string; image: string; subcategory?: string}>;
-  allCategories: string[];
+  categoryTree: Record<string, CategoryItem>;
 };
 const { category } = Astro.params;
 ---
@@ -79,7 +100,7 @@ const { category } = Astro.params;
     lang={lang}
     category={category}
     products={products}
-    allCategories={allCategories}
+    categoryTree={categoryTree}
     client:load
   />
 </MainLayout>
