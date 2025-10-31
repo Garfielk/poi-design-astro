@@ -42,9 +42,10 @@ const ProductCategories = ({ lang }: CategoryGridProps) => {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
       {categories.map((category, index) => (
-        <div
+        <a
           key={category.title}
-          className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer animate-scale-in"
+          href={getLocalizedPath(`products/kneeelbow-guard`, lang)}
+          className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer animate-scale-in block"
           style={{ animationDelay: `${index * 0.1}s` }}
         >
           {/* Image */}
@@ -63,12 +64,12 @@ const ProductCategories = ({ lang }: CategoryGridProps) => {
             {/*<div className="text-accent font-semibold">{category.label}</div>*/}
 
             {/* Arrow Indicator */}
-            <a href={getLocalizedPath(`products/kneeelbow-guard`, lang)} className="mt-4 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" >
+            <div className="mt-4 flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span className="text-sm">{t.home.categoryGrid.explore}</span>
               <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   );
