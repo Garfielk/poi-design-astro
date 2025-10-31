@@ -86,9 +86,9 @@ const Hero = memo(({ lang }: HeroProps) => {
                 }),
               ]}
             >
-              <CarouselContent className="h-[60vh] lg:h-screen">
+              <CarouselContent className="h-[60vh] lg:h-screen -ml-0">
                 {carouselImages.map((image, index) => (
-                  <CarouselItem key={index} className="h-full">
+                  <CarouselItem key={index} className="h-full pl-0">
                     <img
                       src={image.src}
                       alt={image.alt}
