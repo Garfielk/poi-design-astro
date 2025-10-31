@@ -126,15 +126,31 @@ const Header = ({ lang }: Props) => {
 
           {/* Language Switcher & Mobile Menu */}
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden lg:flex items-center gap-2 text-white/90 hover:text-accent hover:bg-white/10"
-              onClick={() => window.location.href = switchUrl}
-            >
-              <Globe className="h-4 w-4" />
-              {alternateLangName}
-            </Button>
+            <div className="hidden lg:flex items-center gap-1 text-sm">
+              <button
+                className={`px-3 py-1 rounded transition-colors duration-200 ${
+                  lang === 'en' 
+                    ? 'bg-accent text-white cursor-not-allowed' 
+                    : 'text-white/90 hover:text-accent hover:bg-white/10'
+                }`}
+                onClick={() => lang !== 'en' && (window.location.href = getLanguageSwitchUrl(typeof window !== 'undefined' ? window.location.pathname : '/', lang))}
+                disabled={lang === 'en'}
+              >
+                EN
+              </button>
+              <span className="text-white/60 mx-1">/</span>
+              <button
+                className={`px-3 py-1 rounded transition-colors duration-200 ${
+                  lang === 'zh-CN' 
+                    ? 'bg-accent text-white cursor-not-allowed' 
+                    : 'text-white/90 hover:text-accent hover:bg-white/10'
+                }`}
+                onClick={() => lang !== 'zh-CN' && (window.location.href = getLanguageSwitchUrl(typeof window !== 'undefined' ? window.location.pathname : '/', lang))}
+                disabled={lang === 'zh-CN'}
+              >
+                简体中文
+              </button>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -164,13 +180,31 @@ const Header = ({ lang }: Props) => {
                   {item.label}
                 </a>
               ))}
-              <button
-                className="flex items-center gap-2 text-sm text-white/90 hover:text-accent transition-colors py-2"
-                onClick={() => window.location.href = switchUrl}
-              >
-                <Globe className="h-4 w-4" />
-                {alternateLangName}
-              </button>
+              <div className="flex items-center gap-1 text-sm py-2">
+                <button
+                  className={`px-3 py-1 rounded transition-colors duration-200 ${
+                    lang === 'en' 
+                      ? 'bg-accent text-white cursor-not-allowed' 
+                      : 'text-white/90 hover:text-accent hover:bg-white/10'
+                  }`}
+                  onClick={() => lang !== 'en' && (window.location.href = getLanguageSwitchUrl(typeof window !== 'undefined' ? window.location.pathname : '/', lang))}
+                  disabled={lang === 'en'}
+                >
+                  EN
+                </button>
+                <span className="text-white/60 mx-1">/</span>
+                <button
+                  className={`px-3 py-1 rounded transition-colors duration-200 ${
+                    lang === 'zh-CN' 
+                      ? 'bg-accent text-white cursor-not-allowed' 
+                      : 'text-white/90 hover:text-accent hover:bg-white/10'
+                  }`}
+                  onClick={() => lang !== 'zh-CN' && (window.location.href = getLanguageSwitchUrl(typeof window !== 'undefined' ? window.location.pathname : '/', lang))}
+                  disabled={lang === 'zh-CN'}
+                >
+                  简体中文
+                </button>
+              </div>
             </nav>
           </div>
         )}
