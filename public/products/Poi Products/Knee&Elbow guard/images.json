@@ -1,0 +1,34 @@
+{
+  "name": "Knee&Elbow guard",
+  "productImages": [
+    {
+      "name": "PE-102",
+      "src": "Poi Products/Knee&Elbow guard/PE-102.png"
+    },
+    {
+      "name": "PE-103",
+      "src": "Poi Products/Knee&Elbow guard/PE-103.png"
+    },
+    {
+      "name": "PK-103",
+      "src": "Poi Products/Knee&Elbow guard/PK-103.png"
+    },
+    {
+      "name": "PK-104",
+      "src": "Poi Products/Knee&Elbow guard/PK-104.png"
+    },
+    {
+      "name": "PK-105",
+      "src": "Poi Products/Knee&Elbow guard/PK-105.png"
+    },
+    {
+      "name": "PK-107",
+      "src": "Poi Products/Knee&Elbow guard/PK-107.png"
+    },
+    {
+      "name": "PK-109",
+      "src": "Poi Products/Knee&Elbow guard/PK-109.png"
+    }
+  ]
+
+}

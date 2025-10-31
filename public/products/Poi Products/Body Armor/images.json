@@ -1,0 +1,30 @@
+{
+  "name": "Body Armor",
+  "productImages": [
+    {
+      "name": "PC-102",
+      "src": "Poi Products/Body Armor/PC-102.png"
+    },
+    {
+      "name": "PJ-101",
+      "src": "Poi Products/Body Armor/PJ-101.png"
+    },
+    {
+      "name": "PJ-102",
+      "src": "Poi Products/Body Armor/PJ-102.png"
+    },
+    {
+      "name": "PJ-103",
+      "src": "Poi Products/Body Armor/PJ-103.png"
+    },
+    {
+      "name": "PJ-104",
+      "src": "Poi Products/Body Armor/PJ-104.png"
+    },
+    {
+      "name": "PJ-107",
+      "src": "Poi Products/Body Armor/PJ-107.png"
+    }
+  ]
+
+}

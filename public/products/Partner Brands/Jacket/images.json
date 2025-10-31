@@ -1,0 +1,30 @@
+{
+  "name": "Jacket",
+  "productImages": [
+    {
+      "name": "Performance Jacket",
+      "src": "Partner Brands/Jacket/Performance Jacket.jpg"
+    },
+    {
+      "name": "Performance Satety Jacket",
+      "src": "Partner Brands/Jacket/Performance Satety Jacket.jpg"
+    },
+    {
+      "name": "Proective Vest",
+      "src": "Partner Brands/Jacket/Proective Vest.png"
+    },
+    {
+      "name": "Protective Jacket Long Sleeve",
+      "src": "Partner Brands/Jacket/Protective Jacket Long Sleeve.png"
+    },
+    {
+      "name": "Protective Jacket",
+      "src": "Partner Brands/Jacket/Protective Jacket.png"
+    },
+    {
+      "name": "Protective Shirt Short Sleeve",
+      "src": "Partner Brands/Jacket/Protective Shirt Short Sleeve.png"
+    }
+  ]
+
+}

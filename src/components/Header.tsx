@@ -96,7 +96,7 @@ const Header = ({ lang }: Props) => {
           <a href="/" className="flex items-center space-x-2 group">
             <div
               className="w-32 h-10 lg:w-40 lg:h-12 bg-contain bg-center bg-no-repeat"
-              style={{ backgroundImage: "url('/src/assets/logo.png')" }}
+              style={{ backgroundImage: "url('/logo.png')" }}
             >
               <span className="sr-only">POI design</span>
             </div>

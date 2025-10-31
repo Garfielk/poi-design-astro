@@ -26,7 +26,7 @@ const Footer = ({ lang }: FooterProps) => {
             <div className="flex items-center space-x-2">
               <div
                 className="w-32 h-10 bg-contain bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/src/assets/logo.png')" }}
+                style={{ backgroundImage: "url('/logo.png')" }}
               >
                 <span className="sr-only">POI</span>
               </div>
