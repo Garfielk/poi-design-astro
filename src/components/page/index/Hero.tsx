@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel.tsx";
 import banner1 from "@/assets/index/banner1.jpg";
 import banner2 from "@/assets/index/banner2.jpg";
+import banner3 from "@/assets/index/banner3.jpg";
 import type { Language } from "@/i18n/config.ts";
 import { getTranslations } from "@/i18n/utils.ts";
 
@@ -21,8 +22,9 @@ const Hero = memo(({ lang }: HeroProps) => {
   const [current, setCurrent] = useState(0);
 
   const carouselImages = [
-    { src: banner1.src, alt: t.home.hero.imageAlt.banner1 },
-    { src: banner2.src, alt: t.home.hero.imageAlt.banner2 },
+    { src: banner1.src, alt: t.home.hero.imageAlt.banner1, className: 'object-cover' },
+    { src: banner2.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
+    { src: banner3.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
   ];
 
   useEffect(() => {
@@ -71,7 +73,7 @@ const Hero = memo(({ lang }: HeroProps) => {
           </div>
 
           {/* Right Image Carousel */}
-          <div className="relative h-[60vh] lg:h-screen w-full">
+          <div className="relative h-[60vh] lg:h-screen w-full bg-black">
             <div className="absolute inset-0 -z-10" />
 
             <Carousel
@@ -92,7 +94,7 @@ const Hero = memo(({ lang }: HeroProps) => {
                     <img
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-cover"
+                      className={`w-full h-full ${image.className}`}
                     />
                   </CarouselItem>
                 ))}
