@@ -103,7 +103,7 @@ const Header = ({ lang }: Props) => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
               <a
                 key={item.label}
