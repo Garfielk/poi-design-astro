@@ -195,28 +195,30 @@ const Contact = ({lang}: Props) => {
                   style={{ animationDelay: `${(index + 2) * 0.1}s` }}
                 >
                   <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-                    {/* Image */}
-                    <div className="w-full aspect-[3/4] overflow-hidden">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                    {/* Image with padding */}
+                    <div className="w-full aspect-[3/4] overflow-hidden p-4">
+                      <div className="w-full h-full overflow-hidden rounded-lg">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
                     </div>
 
-                    {/* Info Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-background p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 overflow-hidden">
-                      <h3 className="font-bold text-lg mb-2">{member.name}</h3>
-                      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+                    {/* Info Below Image */}
+                    <div className="p-4 bg-background transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <h3 className="font-bold text-lg mb-2 transition-colors duration-300">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground mb-2 transition-colors duration-300 group-hover:text-primary-foreground/90">{member.role}</p>
                       <div className="space-y-1">
-                        <p className="text-sm text-muted-foreground flex items-center gap-1">
+                        <p className="text-sm text-muted-foreground flex items-center gap-1 transition-colors duration-300 group-hover:text-primary-foreground/80">
                           <Phone className="w-3 h-3" />
                           {member.mobile}
                         </p>
                         <p className="text-sm">
                           <a 
                             href={`mailto:${member.email}`} 
-                            className="text-primary hover:underline flex items-center gap-1"
+                            className="text-primary hover:underline flex items-center gap-1 transition-colors duration-300 group-hover:text-primary-foreground group-hover:no-underline"
                           >
                             <Mail className="w-3 h-3" />
                             {member.email}
