@@ -190,7 +190,8 @@ const Company = ({lang}: Props) => {
                     <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                       {isEven ? (
                         <>
-                          <div className="pr-8">
+                          {/* Desktop: Text on left, Image on right */}
+                          <div className="pr-8 hidden md:block">
                             <div
                               className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 text-right">
                               <h3
@@ -200,7 +201,28 @@ const Company = ({lang}: Props) => {
                               <p className="text-xl font-semibold text-black break-words">{item.description}</p>
                             </div>
                           </div>
-                          <div className="mt-4 md:mt-0 pl-8">
+                          <div className="mt-4 md:mt-0 pl-8 hidden md:block">
+                            <div className="rounded-lg w-48 h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                              <img
+                                src={item.image.src}
+                                alt={`History ${item.year}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* Mobile/Tablet: Text on top, Image on bottom, centered */}
+                          <div className="md:hidden text-center mb-6">
+                            <div
+                              className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
+                              <h3
+                                className="text-3xl font-bold mb-2 text-black">
+                                {item.year}
+                              </h3>
+                              <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                            </div>
+                          </div>
+                          <div className="md:hidden flex justify-center">
                             <div className="rounded-lg w-48 h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
                               <img
                                 src={item.image.src}
@@ -212,7 +234,8 @@ const Company = ({lang}: Props) => {
                         </>
                       ) : (
                         <>
-                          <div className="order-2 md:order-1 mt-4 md:mt-0 pr-8">
+                          {/* Desktop: Image on left, Text on right */}
+                          <div className="order-2 md:order-1 mt-4 md:mt-0 pr-8 hidden md:block">
                             <div className="rounded-lg w-48 ml-auto h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
                               <img
                                 src={item.image.src}
@@ -221,7 +244,7 @@ const Company = ({lang}: Props) => {
                               />
                             </div>
                           </div>
-                          <div className="order-1 md:order-2 pl-8">
+                          <div className="order-1 md:order-2 pl-8 hidden md:block">
                             <div
                               className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 text-left">
                               <h3
@@ -229,6 +252,27 @@ const Company = ({lang}: Props) => {
                                 {item.year}
                               </h3>
                               <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                            </div>
+                          </div>
+                          
+                          {/* Mobile/Tablet: Text on top, Image on bottom, centered */}
+                          <div className="md:hidden text-center mb-6">
+                            <div
+                              className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
+                              <h3
+                                className="text-3xl font-bold mb-2 text-black">
+                                {item.year}
+                              </h3>
+                              <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                            </div>
+                          </div>
+                          <div className="md:hidden flex justify-center">
+                            <div className="rounded-lg w-48 h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                              <img
+                                src={item.image.src}
+                                alt={`History ${item.year}`}
+                                className="w-full h-full object-cover"
+                              />
                             </div>
                           </div>
                         </>
