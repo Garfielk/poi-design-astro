@@ -52,7 +52,7 @@ export default {
     },
   },
   footer: {
-    brandDescription: 'Engineered protection for athletes. Innovation through passion.',
+    brandDescription: 'Passion on Innovation.',
     quickLinks: 'Quick Links',
     contactUs: 'CONTACT US',
     email: 'ella@poidesigns.com',

@@ -1,4 +1,4 @@
-import heroProtector from "@/assets/hero-protector.jpg";
+import heroProtector from "@/assets/company/banner.jpg";
 import type { Language } from "@/i18n/config.ts";
 import {getLocalizedPath, getTranslations} from "@/i18n/utils.ts";
 import {ArrowRight} from "lucide-react";

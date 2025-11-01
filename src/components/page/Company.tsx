@@ -79,21 +79,21 @@ const Company = ({lang}: Props) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-[535px] flex items-center justify-center overflow-hidden mt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{backgroundImage: `url(${laboratoryImg.src})`}}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60"/>
+          {/*<div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60"/>*/}
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 lg:flex lg:items-center lg:justify-end lg:text-right">
           <div className="max-w-2xl animate-fade-in">
             <h1
-              className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight pb-2">
+              className="text-4xl lg:text-6xl font-bold mb-6 text-black leading-tight pb-2">
               {t.company.hero.title}
             </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground">
+            <p className="text-lg lg:text-xl text-black">
               {t.company.hero.subtitle}
             </p>
           </div>
@@ -194,14 +194,14 @@ const Company = ({lang}: Props) => {
                             <div
                               className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 text-right">
                               <h3
-                                className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                className="text-3xl font-bold mb-2 text-black">
                                 {item.year}
                               </h3>
-                              <p className="text-xl font-semibold text-muted-foreground break-words">{item.description}</p>
+                              <p className="text-xl font-semibold text-black break-words">{item.description}</p>
                             </div>
                           </div>
                           <div className="mt-4 md:mt-0 pl-8">
-                            <div className="rounded-lg h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            <div className="rounded-lg w-48 h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
                               <img
                                 src={item.image.src}
                                 alt={`History ${item.year}`}
@@ -213,7 +213,7 @@ const Company = ({lang}: Props) => {
                       ) : (
                         <>
                           <div className="order-2 md:order-1 mt-4 md:mt-0 pr-8">
-                            <div className="rounded-lg h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                            <div className="rounded-lg w-48 ml-auto h-48 shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300">
                               <img
                                 src={item.image.src}
                                 alt={`History ${item.year}`}
@@ -225,10 +225,10 @@ const Company = ({lang}: Props) => {
                             <div
                               className="bg-background p-6 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 text-left">
                               <h3
-                                className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                                className="text-3xl font-bold mb-2 text-black">
                                 {item.year}
                               </h3>
-                              <p className="text-xl font-semibold text-muted-foreground break-words">{item.description}</p>
+                              <p className="text-xl font-semibold text-black break-words">{item.description}</p>
                             </div>
                           </div>
                         </>

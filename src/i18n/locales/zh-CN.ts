@@ -52,7 +52,7 @@ export default {
     },
   },
   footer: {
-    brandDescription: '为运动员打造的专业防护装备。以激情驱动创新。',
+    brandDescription: '在创新上的热情',
     quickLinks: '快速链接',
     contactUs: '联系我们',
     email: 'ella@poidesigns.com',

@@ -49,14 +49,14 @@ const Hero = memo(({ lang }: HeroProps) => {
         <div className="grid lg:grid-cols-[45%_55%] w-full items-center">
           {/* Left Content */}
           <div className="container mx-auto px-4 lg:px-8 py-24 lg:py-0 space-y-8 z-10">
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-              <span className="block text-foreground">{t.home.hero.title1}</span>
-              <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {t.home.hero.title3}
-              </span>
+            <h1 className="text-6xl lg:text-7xl leading-tight">
+              <span className="block text-foreground">{t.home.hero.title1}<br />{t.home.hero.title3}</span>
+              {/*<span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">*/}
+              {/*  {t.home.hero.title3}*/}
+              {/*</span>*/}
             </h1>
 
-            <div className="space-y-4 text-lg lg:text-xl text-muted-foreground">
+            <div className="space-y-4 text-xl lg:text-2xl text-muted-foreground">
               <div className="flex items-center gap-3 group cursor-default">
                 <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
                 <span className="group-hover:text-accent transition-colors">{t.home.hero.protection}</span>
