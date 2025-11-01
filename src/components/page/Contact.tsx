@@ -72,7 +72,7 @@ const Contact = ({lang}: Props) => {
               </p>
 
               {/* Contact Details */}
-              <div className="space-y-4">
+              <div className="space-y-4 hidden">
                 <div className="flex items-start gap-3 group">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Mail className="w-5 h-5 text-primary" />
@@ -196,7 +196,7 @@ const Contact = ({lang}: Props) => {
                 >
                   <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     {/* Image with padding */}
-                    <div className="w-full aspect-[3/4] overflow-hidden p-4">
+                    <div className="w-full aspect-[1/1] overflow-hidden p-4 pb-0 bg-[#fbfbfb]">
                       <div className="w-full h-full overflow-hidden rounded-lg">
                         <img
                           src={member.image}
@@ -207,18 +207,18 @@ const Contact = ({lang}: Props) => {
                     </div>
 
                     {/* Info Below Image */}
-                    <div className="p-4 bg-background transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                      <h3 className="font-bold text-lg mb-2 transition-colors duration-300">{member.name}</h3>
-                      <p className="text-sm text-muted-foreground mb-2 transition-colors duration-300 group-hover:text-primary-foreground/90">{member.role}</p>
+                    <div className="p-4 bg-background transition-all duration-200 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <h3 className="font-bold text-lg mb-2">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground mb-2 transition-colors duration-200 group-hover:text-primary-foreground/90">{member.role}</p>
                       <div className="space-y-1">
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 transition-colors duration-300 group-hover:text-primary-foreground/80">
+                        <p className="text-sm text-muted-foreground flex items-center gap-1 transition-colors duration-200 group-hover:text-primary-foreground/80">
                           <Phone className="w-3 h-3" />
                           {member.mobile}
                         </p>
                         <p className="text-sm">
-                          <a 
-                            href={`mailto:${member.email}`} 
-                            className="text-primary hover:underline flex items-center gap-1 transition-colors duration-300 group-hover:text-primary-foreground group-hover:no-underline"
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="text-primary hover:underline flex items-center gap-1 transition-colors duration-200 group-hover:text-primary-foreground group-hover:no-underline"
                           >
                             <Mail className="w-3 h-3" />
                             {member.email}
