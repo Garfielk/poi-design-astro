@@ -169,7 +169,7 @@ POI 实验室：可进行冲击测试；与 Ricotest 长期合作；
     },
     confidence: {
       title: '我们对产品的信心所基于的是什么呢？',
-      description: '我们产品的卓越性能源自：',
+      description: '对产品的深入了解/技术的持续改进/F2B一站式定位系统',
       imageAlt: '产品结构',
       points: [
         '通过加速生命周期测试进行基于证据的验证',

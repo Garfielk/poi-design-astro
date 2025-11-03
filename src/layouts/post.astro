@@ -9,11 +9,11 @@ const { frontmatter } = Astro.props;
 <MainLayout lang={frontmatter.lang}>
   <main class="min-h-screen pt-20">
     {/* Hero Section */}
-    <div class="relative h-[400px] w-full overflow-hidden">
+    <div class="relative h-auto w-full overflow-hidden">
       <img
         src={frontmatter.cover}
         alt={frontmatter.title}
-        class="w-full h-full object-cover"
+        class="w-full h-full object-contain"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 

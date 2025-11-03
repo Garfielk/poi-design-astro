@@ -98,7 +98,7 @@ const Products = ({ lang }: Props) => {
               <p className="text-lg text-gray-300 mb-6">
                 {t.products.confidence.description}
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-4 hidden">
                 {confidencePoints.map((point, index) => (
                   <li
                     key={index}
