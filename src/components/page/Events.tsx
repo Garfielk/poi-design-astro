@@ -15,6 +15,8 @@ interface Props {
 const Events = ({lang, events}: Props) => {
   const {t} = useTranslations(lang);
 
+  console.log(events);
+
   return (
     <>
       <div className="pt-20">
@@ -24,9 +26,6 @@ const Events = ({lang, events}: Props) => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Events
               </h1>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Join us at major international exhibitions and sporting events
-              </p>
             </div>
 
             <div className="space-y-6">

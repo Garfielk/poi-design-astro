@@ -40,6 +40,73 @@ interface SidebarProps {
 
 const PRIMARY_CATEGORY_ORDER = ["poi-products", "partner-brands"] as const;
 
+// 为 poi-products 定义二级菜单排序
+const POI_PRODUCTS_SECONDARY_ORDER = [
+  "body-armor",
+  "kneeelbow-guard",
+  "pu-protectors",
+] as const;
+
+// 为 partner-brands 定义二级菜单排序
+const PARTNER_BRANDS_SECONDARY_ORDER = [
+  "chestback",
+  "kneeelbow",
+  "jacket",
+  "pantsshort",
+  "other",
+] as const;
+
+const getOrderedChildEntries = (
+  children: Record<string, CategoryTreeNode> | null,
+  parentKey: string,
+  lang: Language,
+): Array<[string, CategoryTreeNode]> => {
+  if (!children) {
+    return [];
+  }
+
+  const normalizedParentKey = parentKey.toLowerCase();
+  let orderArray: readonly string[] = [];
+
+  if (normalizedParentKey === "poi-products") {
+    orderArray = POI_PRODUCTS_SECONDARY_ORDER;
+  } else if (normalizedParentKey === "partner-brands") {
+    orderArray = PARTNER_BRANDS_SECONDARY_ORDER;
+  }
+
+  const orderMap = new Map<string, number>(
+    orderArray.map((category, index) => [category.toLowerCase(), index]),
+  );
+
+  const collator = new Intl.Collator(lang === "zh-CN" ? "zh-CN" : "en", {
+    sensitivity: "base",
+    usage: "sort",
+  });
+
+  console.log(children);
+
+  return Object.entries(children).sort(([keyA], [keyB]) => {
+    const normalizedA = keyA.toLowerCase();
+    const normalizedB = keyB.toLowerCase();
+    const orderA = orderMap.get(normalizedA);
+    const orderB = orderMap.get(normalizedB);
+
+    if (orderA !== undefined && orderB !== undefined) {
+      return orderA - orderB;
+    }
+
+    if (orderA !== undefined) {
+      return -1;
+    }
+
+    if (orderB !== undefined) {
+      return 1;
+    }
+
+    return collator.compare(keyA, keyB);
+  });
+};
+
 const getOrderedParentEntries = (
   categoryTree: Record<string, CategoryTreeNode>,
   lang: Language,
@@ -166,7 +233,7 @@ const Sidebar = ({
 
           <ul className="space-y-1">
             {parentEntries.map(([parentKey, node]) => {
-              const childEntries = Object.entries(node.children ?? {});
+              const childEntries = getOrderedChildEntries(node.children, parentKey, lang);
               const hasChildren = childEntries.length > 0;
               const isExpanded = openParentKey === parentKey;
               const isParentActive =
@@ -383,21 +450,29 @@ const ProductCategory = ({
 
               <div className="flex-1 lg:overflow-y-auto lg:pr-2">
                 {normalizedProducts.length > 0 ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 max-w-7xl pb-6 lg:pb-8">
-                    {normalizedProducts.map((product) => (
-                      <div
-                        key={product.id}
-                        className="group bg-card rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/50"
-                      >
-                        <div className="relative aspect-video overflow-hidden bg-muted">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl pb-6 lg:pb-8">
+                    {normalizedProducts.map((product) => {
+                      const isPartnerBrand = selectedParentKey === "partner-brands";
+
+                      return (
+                        <div
+                          key={product.id}
+                          className="group bg-card rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/50"
+                        >
+                          <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                            />
+                            {isPartnerBrand && (
+                              <div className="absolute top-2 left-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-3 py-1.5 rounded shadow-lg text-center z-10">
+                                NOT FOR SALE ONLY OEM
+                              </div>
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          </div>
 
                         <div className="p-3 sm:p-4 space-y-1.5 sm:space-y-2">
                           <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -410,7 +485,8 @@ const ProductCategory = ({
                           )}
                         </div>
                       </div>
-                    ))}
+                    );
+                    })}
                   </div>
                 ) : (
                   <div className="text-center py-12">

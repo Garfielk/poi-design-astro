@@ -37,41 +37,49 @@ const Company = ({lang}: Props) => {
     {
       year: "1995",
       description: t.company.history.timeline['1995'],
+      detail: t.company.history.timelineDetails['1995'],
       image: history1995,
     },
     {
       year: "2006",
       description: t.company.history.timeline['2006'],
+      detail: t.company.history.timelineDetails['2006'],
       image: history2006,
     },
     {
       year: "2012",
       description: t.company.history.timeline['2012'],
+      detail: t.company.history.timelineDetails['2012'],
       image: history2012,
     },
     {
       year: "2016",
       description: t.company.history.timeline['2016'],
+      detail: t.company.history.timelineDetails['2016'],
       image: history2016,
     },
     {
       year: "2022",
       description: t.company.history.timeline['2022'],
+      detail: t.company.history.timelineDetails['2022'],
       image: history2022,
     },
     {
       year: "2023",
       description: t.company.history.timeline['2023'],
+      detail: t.company.history.timelineDetails['2023'],
       image: history2023,
     },
     // {
     //   year: "2024",
     //   description: t.company.history.timeline['2024'],
+    //   detail: t.company.history.timelineDetails['2024'],
     //   image: history2024,
     // },
     {
       year: "2025",
       description: t.company.history.timeline['2025'],
+      detail: t.company.history.timelineDetails['2025'],
       image: history2025,
     }
   ]
@@ -84,11 +92,11 @@ const Company = ({lang}: Props) => {
           className="absolute inset-0 bg-cover bg-center"
           style={{backgroundImage: `url(${laboratoryImg.src})`}}
         >
-          {/*<div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60"/>*/}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-background/40"/>
         </div>
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10 lg:flex lg:items-center lg:justify-end lg:text-right">
-          <div className="max-w-2xl animate-fade-in">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 lg:flex lg:items-center lg:justify-end lg:text-right ">
+          <div className="max-w-2xl lg:-translate-y-16">
             <h1
               className="text-4xl lg:text-6xl font-bold mb-6 text-black leading-tight pb-2">
               {t.company.hero.title}
@@ -166,7 +174,7 @@ const Company = ({lang}: Props) => {
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">{t.company.history.title}</h2>
             <p className="text-left text-lg text-muted-foreground max-w-4xl mx-auto whitespace-pre-line leading-relaxed">
-              {t.company.history.description}
+              {t.home.productShowcase.description}
             </p>
           </div>
 
@@ -199,6 +207,7 @@ const Company = ({lang}: Props) => {
                                 {item.year}
                               </h3>
                               <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{item.detail}</p>
                             </div>
                           </div>
                           <div className="mt-4 md:mt-0 pl-8 hidden md:block">
@@ -210,7 +219,7 @@ const Company = ({lang}: Props) => {
                               />
                             </div>
                           </div>
-                          
+
                           {/* Mobile/Tablet: Text on top, Image on bottom, centered */}
                           <div className="md:hidden text-center mb-6">
                             <div
@@ -220,6 +229,7 @@ const Company = ({lang}: Props) => {
                                 {item.year}
                               </h3>
                               <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{item.detail}</p>
                             </div>
                           </div>
                           <div className="md:hidden flex justify-center">
@@ -252,9 +262,10 @@ const Company = ({lang}: Props) => {
                                 {item.year}
                               </h3>
                               <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{item.detail}</p>
                             </div>
                           </div>
-                          
+
                           {/* Mobile/Tablet: Text on top, Image on bottom, centered */}
                           <div className="md:hidden text-center mb-6">
                             <div
@@ -264,6 +275,7 @@ const Company = ({lang}: Props) => {
                                 {item.year}
                               </h3>
                               <p className="text-xl font-semibold text-black break-words">{item.description}</p>
+                              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{item.detail}</p>
                             </div>
                           </div>
                           <div className="md:hidden flex justify-center">

@@ -1,5 +1,4 @@
 ---
-
 title: "EICMA Milan"
 location: "Fiera Milano, Italy"
 date: "09 Aug 2022"
