@@ -86,7 +86,7 @@ const Hero = memo(({ lang }: HeroProps) => {
               }}
               plugins={[
                 Autoplay({
-                  delay: 3000,
+                  delay: 5000,
                 }),
               ]}
             >

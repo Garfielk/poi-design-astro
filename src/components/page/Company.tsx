@@ -94,9 +94,8 @@ const Company = ({lang}: Props) => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-background/40"/>
         </div>
-
-        <div className="container mx-auto px-4 lg:px-8 relative z-10 lg:flex lg:items-center lg:justify-end lg:text-right ">
-          <div className="max-w-2xl lg:-translate-y-16">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 ">
+          <div className="max-w-2xl">
             <h1
               className="text-4xl lg:text-6xl font-bold mb-6 text-black leading-tight pb-2">
               {t.company.hero.title}

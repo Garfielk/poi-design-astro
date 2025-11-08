@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import concept from "@/assets/products/concept.jpg";
-import banner1 from "@/assets/index/banner1.jpg";
-import banner2 from "@/assets/index/banner2.jpg";
+import banner1 from "@/assets/products/banner1.jpg";
+import banner2 from "@/assets/products/banner2.jpg";
 import banner3 from "@/assets/index/banner3.jpg";
 import banner4 from "@/assets/index/banner4.jpg";
 import type { Language } from "@/i18n/config.ts";
@@ -44,8 +44,8 @@ const Products = ({ lang }: Props) => {
           }}
           plugins={[
             Autoplay({
-              delay: 4000,
-              stopOnInteraction: false,
+              delay: 6000,
+              stopOnInteraction: true,
             }),
           ]}
           className="w-full"
