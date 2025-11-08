@@ -1,4 +1,4 @@
-import laboratoryImg from "@/assets/company/banner.jpg";
+import companyBannerImg from "@/assets/company/banner.jpg";
 import company1 from "@/assets/company/1.jpg";
 import company2 from "@/assets/company/2.jpg";
 import company3 from "@/assets/company/3.jpg";
@@ -90,7 +90,7 @@ const Company = ({lang}: Props) => {
       <section className="relative min-h-[535px] flex items-center justify-center overflow-hidden mt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{backgroundImage: `url(${laboratoryImg.src})`}}
+          style={{backgroundImage: `url(${companyBannerImg.src})`}}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-background/40"/>
         </div>

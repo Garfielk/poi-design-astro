@@ -62,7 +62,7 @@ export default {
     address: 'No.19A JINYUAN ROAD, XIFUZHEN SUBDISTRICT,',
     addressLine2: 'CHENGYANG DISTRICT,',
     addressLine3: 'QINGDAO, SHANDONG, CHINA.',
-    copyright: '© 2025 POI Degisns. All rights reserved.',
+    copyright: '© 2025 POI DESIGNS. All rights reserved.',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
   },
@@ -73,17 +73,17 @@ export default {
     },
     about: {
       title: 'ABOUT POI DESIGNS',
-      paragraph1: `POI team is Serialized manufacturer for protection, providing OEM and ODM service. Inovation and Passion since 2006. Specialized now for MX (Motocross) and MTB  (Moutain bike) protection, Motorcycling garment, such as safety jacket, knee guard, elbow guard, roost guard, back protector, protection short etc...and textile jacket,  Accessories of all kinds of protectors such as TPE, TPV, honeycomb materials to elevate your next adventure.`,
+      paragraph1: `POI team is Serialized manufacturer for protection, providing OEM and ODM service. Innovation and Passion since 2006. Specialized now for MX (Motocross) and MTB  (Mountain bike) protection, Motorcycling garment, such as safety jacket, knee guard, elbow guard, roost guard, back protector, protection short etc...and textile jacket,  Accessories of all kinds of protectors such as TPE, TPV, honeycomb materials to elevate your next adventure.`,
     },
     advantages: {
       title: 'OUR ADVANTAGES',
       description: `Professional Factory: 20 Years Experience;
 Development Team: One-stop Solution Available;
 Open mold: Varies Open Models Ready to Use;
-Suply Chain：Efficiency and Stable;
-Quality Cantrol：IQC,IPQC,OQC;
+Supply Chain：Efficiency and Stable;
+Quality Control：IQC,IPQC,OQC;
 Certification: CE Certified;
-POI Lab: Impact Test Available at POI& Long-term Coperation with Ricotest;
+POI Lab: Impact Test Available at POI& Long-term Cooperation with Rico test;
 Service: OEM & ODM.`,
       videos: {
         factory: 'POI Factory Introduction',
@@ -199,7 +199,7 @@ In 2025, POI Designs further upgraded the supply chain system.`,
         description:
           '● Through which engineering methodologies can\n' +
           'we enhance product performance metrics?\n' +
-          'Through multidimensional analysis of quantitative data across varying test levels(impact/fatigue/environmental)and criticalregions,we willoptimize and refine product structures toachieve targeted reinforcement of structural strength.\n' +
+          'Through multidimensional analysis of quantitative data across varying test levels(impact/fatigue/environmental)and critical regions,we will optimize and refine product structures to achieve targeted reinforcement of structural strength.\n' +
           '● How do we implement this process?\n' +
           '\n' +
           'Our laboratory performs graded impact resistance testing under programmable temperature-humidity conditions.By leveraging continuously expanding test databases,we enhance product reliability while feeding experimental insights back into design iterations for precision design refinements.',
@@ -207,7 +207,7 @@ In 2025, POI Designs further upgraded the supply chain system.`,
       {
         title: 'About the test',
         description:
-          'Our R&D center utilizes specialized impact testing equipment to rigorously validate product quality andreliability.\n' +
+          'Our R&D center utilizes specialized impact testing equipment to rigorously validate product quality and reliability.\n' +
           'All test data undergoes systematic analysis,providing actionable insights for new product development.\n' +
           'We are committed to continuous refinement of our offerings to enhance competitive positioning in the market.',
       },

@@ -1,8 +1,4 @@
 import { Calendar, MapPin } from "lucide-react";
-import eicmaMilan from "@/assets/events/eicma-milan.jpg";
-import intermotCologne from "@/assets/events/intermot-cologne.jpg";
-import motogpEvent from "@/assets/events/motogp-event.jpg";
-import ispoMunich from "@/assets/events/ispo-munich.jpg";
 import {getLocalizedPath, useTranslations} from "@/i18n/utils.ts";
 import type {Language} from "@/i18n/config.ts";
 

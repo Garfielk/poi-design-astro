@@ -9,6 +9,7 @@ import {
 import banner1 from "@/assets/index/banner1.jpg";
 import banner2 from "@/assets/index/banner2.jpg";
 import banner3 from "@/assets/index/banner3.jpg";
+import banner4 from "@/assets/index/banner4.jpg";
 import type { Language } from "@/i18n/config.ts";
 import { getTranslations } from "@/i18n/utils.ts";
 
@@ -22,9 +23,10 @@ const Hero = memo(({ lang }: HeroProps) => {
   const [current, setCurrent] = useState(0);
 
   const carouselImages = [
-    { src: banner1.src, alt: t.home.hero.imageAlt.banner1, className: 'object-cover' },
+    { src: banner1.src, alt: t.home.hero.imageAlt.banner1, className: 'object-contain' },
     { src: banner2.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
-    { src: banner3.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
+    { src: banner3.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
+    { src: banner4.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
   ];
 
   useEffect(() => {

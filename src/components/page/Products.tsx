@@ -11,6 +11,7 @@ import concept from "@/assets/products/concept.jpg";
 import banner1 from "@/assets/index/banner1.jpg";
 import banner2 from "@/assets/index/banner2.jpg";
 import banner3 from "@/assets/index/banner3.jpg";
+import banner4 from "@/assets/index/banner4.jpg";
 import type { Language } from "@/i18n/config.ts";
 import { getLocalizedPath, useTranslations } from "@/i18n/utils.ts";
 import ProductCategories from "@/components/ProductCategories.tsx";
@@ -23,6 +24,7 @@ const heroImages = [
   banner1.src,
   banner2.src,
   banner3.src,
+  banner4.src,
 ];
 
 const Products = ({ lang }: Props) => {
