@@ -155,50 +155,50 @@ const Sidebar = ({
   const { t } = useTranslations(lang);
   const [sidebarLeft, setSidebarLeft] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) {
-      return;
-    }
-
-    const mediaQuery = window.matchMedia("(min-width: 1024px)");
-
-    const updateSidebarPosition = () => {
-      if (!mediaQuery.matches) {
-        setSidebarLeft(null);
-        return;
-      }
-
-      const containerElement = containerRef?.current;
-      if (!containerElement) {
-        return;
-      }
-
-      const rect = containerElement.getBoundingClientRect();
-      setSidebarLeft(rect.left + window.scrollX);
-    };
-
-    updateSidebarPosition();
-
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", updateSidebarPosition);
-    } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(updateSidebarPosition);
-    }
-
-    window.addEventListener("resize", updateSidebarPosition);
-
-    return () => {
-      if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", updateSidebarPosition);
-      } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(updateSidebarPosition);
-      }
-
-      window.removeEventListener("resize", updateSidebarPosition);
-    };
-  }, [containerRef]);
-
-  const sidebarStyle = sidebarLeft !== null ? { left: sidebarLeft } : undefined;
+  // useEffect(() => {
+  //   if (typeof window === "undefined" || !window.matchMedia) {
+  //     return;
+  //   }
+  //
+  //   const mediaQuery = window.matchMedia("(min-width: 1024px)");
+  //
+  //   const updateSidebarPosition = () => {
+  //     if (!mediaQuery.matches) {
+  //       setSidebarLeft(null);
+  //       return;
+  //     }
+  //
+  //     const containerElement = containerRef?.current;
+  //     if (!containerElement) {
+  //       return;
+  //     }
+  //
+  //     const rect = containerElement.getBoundingClientRect();
+  //     setSidebarLeft(rect.left + window.scrollX);
+  //   };
+  //
+  //   updateSidebarPosition();
+  //
+  //   if (typeof mediaQuery.addEventListener === "function") {
+  //     mediaQuery.addEventListener("change", updateSidebarPosition);
+  //   } else if (typeof mediaQuery.addListener === "function") {
+  //     mediaQuery.addListener(updateSidebarPosition);
+  //   }
+  //
+  //   window.addEventListener("resize", updateSidebarPosition);
+  //
+  //   return () => {
+  //     if (typeof mediaQuery.removeEventListener === "function") {
+  //       mediaQuery.removeEventListener("change", updateSidebarPosition);
+  //     } else if (typeof mediaQuery.removeListener === "function") {
+  //       mediaQuery.removeListener(updateSidebarPosition);
+  //     }
+  //
+  //     window.removeEventListener("resize", updateSidebarPosition);
+  //   };
+  // }, [containerRef]);
+  //
+  // const sidebarStyle = sidebarLeft !== null ? { left: sidebarLeft } : undefined;
 
   return (
     <>
@@ -211,16 +211,15 @@ const Sidebar = ({
 
       <aside
         className={`
-          fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border
+          absolute inset-y-0 left-0 z-50 w-64 bg-card border-r border-border
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          lg:inset-auto lg:top-1/2 lg:z-40 lg:w-64 lg:translate-x-0 lg:-translate-y-1/2
+          lg:inset-auto lg:top-[48px] lg:z-40 lg:w-64 lg:translate-x-0
           lg:border lg:border-border lg:bg-card lg:rounded-2xl lg:shadow-sm
           lg:max-h-[calc(100vh-4rem)] lg:overflow-hidden
         `}
-        style={sidebarStyle}
       >
-        <nav className="flex h-full flex-col overflow-y-auto p-6 pt-20 lg:pt-6 lg:pb-6 lg:pr-2 lg:max-h-[calc(100vh-4rem)]">
+        <nav className="flex h-full lg:h-auto flex-col overflow-y-auto p-6 pt-20 lg:pt-6 lg:pb-6 lg:pr-2 lg:max-h-[calc(100vh-4rem)]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted lg:hidden"

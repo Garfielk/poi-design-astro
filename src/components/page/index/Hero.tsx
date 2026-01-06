@@ -10,6 +10,8 @@ import banner1 from "@/assets/index/banner1.jpg";
 import banner2 from "@/assets/index/banner2.jpg";
 import banner3 from "@/assets/index/banner3.jpg";
 import banner4 from "@/assets/index/banner4.jpg";
+import banner5 from "@/assets/index/banner5.jpg";
+import homeTitle from "@/assets/index/home-title.png";
 import type { Language } from "@/i18n/config.ts";
 import { getTranslations } from "@/i18n/utils.ts";
 
@@ -27,6 +29,7 @@ const Hero = memo(({ lang }: HeroProps) => {
     { src: banner2.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
     { src: banner3.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
     { src: banner4.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
+    { src: banner5.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
   ];
 
   useEffect(() => {
@@ -52,23 +55,27 @@ const Hero = memo(({ lang }: HeroProps) => {
           {/* Left Content */}
           <div className="container mx-auto px-4 lg:px-8 py-24 lg:py-0 space-y-8 z-10">
             <h1 className="text-6xl lg:text-7xl leading-tight">
-              <span className="block text-foreground">{t.home.hero.title1}<br />{t.home.hero.title3}</span>
+              {
+                lang === 'en' ? <img
+                  src={homeTitle.src}
+                  className="w-[375px]"
+                  loading="lazy"
+                /> : <span className="block text-foreground">{t.home.hero.title1}<br />{t.home.hero.title3}</span>
+              }
+
               {/*<span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">*/}
               {/*  {t.home.hero.title3}*/}
               {/*</span>*/}
             </h1>
 
-            <div className="space-y-4 text-xl lg:text-2xl text-muted-foreground">
+            <div className="space-y-6 text-2xl lg:text-3xl text-muted-foreground">
               <div className="flex items-center gap-3 group cursor-default">
-                <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
                 <span className="group-hover:text-accent transition-colors">{t.home.hero.protection}</span>
               </div>
               <div className="flex items-center gap-3 group cursor-default">
-                <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
                 <span className="group-hover:text-accent transition-colors">{t.home.hero.innovate}</span>
               </div>
               <div className="flex items-center gap-3 group cursor-default">
-                <div className="w-1 h-8 bg-primary group-hover:h-12 transition-all duration-300" />
                 <span className="group-hover:text-accent transition-colors">{t.home.hero.passion}</span>
               </div>
             </div>

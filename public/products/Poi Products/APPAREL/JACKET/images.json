@@ -1,0 +1,21 @@
+{
+  "name": "JACKET",
+  "productImages": [
+    {
+      "name": "GJ-103",
+      "src": "Poi Products/APPAREL/JACKET/GJ-103.png"
+    },
+    {
+      "name": "GJ-105",
+      "src": "Poi Products/APPAREL/JACKET/GJ-105.png"
+    },
+    {
+      "name": "GJ-106",
+      "src": "Poi Products/APPAREL/JACKET/GJ-106.png"
+    },
+    {
+      "name": "GJ-108",
+      "src": "Poi Products/APPAREL/JACKET/GJ-108.png"
+    }
+  ]
+}

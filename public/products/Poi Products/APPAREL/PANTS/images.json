@@ -1,0 +1,13 @@
+{
+  "name": "PANTS",
+  "productImages": [
+    {
+      "name": "GP-107",
+      "src": "Poi Products/APPAREL/PANTS/GP-107.png"
+    },
+    {
+      "name": "GP-108",
+      "src": "Poi Products/APPAREL/PANTS/GP-108.png"
+    }
+  ]
+}

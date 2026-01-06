@@ -27,7 +27,7 @@ const teamMembers = [
   {
     id: 3,
     name: "Ella Guan",
-    role: "VP",
+    role: "President",
     mobile: '+86-15020036235',
     email: 'ella@poidesigns.com',
     image: Ella.src,
@@ -35,7 +35,7 @@ const teamMembers = [
   {
     id: 3,
     name: "Susan Pan",
-    role: "Manager",
+    role: "Sales Manager",
     mobile: '+86-13361232855',
     email: 'susan@poidesigns.com',
     image: Susan.src,
@@ -43,7 +43,7 @@ const teamMembers = [
   {
     id: 3,
     name: "Dean Ding",
-    role: "Manager",
+    role: "Sales Manager",
     mobile: '+86-18660299596',
     email: 'dean@poidesigns.com',
     image: Dean.src,

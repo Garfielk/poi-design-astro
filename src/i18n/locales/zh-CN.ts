@@ -8,8 +8,8 @@ export default {
   },
   home: {
     hero: {
-      title1: '在创新上的',
-      title3: '热情',
+      title1: '激情与创新',
+      title3: '',
       protection: '防护',
       innovate: '创新',
       passion: '热情',
@@ -52,7 +52,7 @@ export default {
     },
   },
   footer: {
-    brandDescription: '在创新上的热情',
+    brandDescription: '激情与创新',
     quickLinks: '快速链接',
     contactUs: '联系我们',
     email: 'ella@poidesigns.com',
@@ -72,7 +72,7 @@ export default {
       subtitle: '自 1995 年起便具备工业基因。',
     },
     about: {
-      title: '关于POI设计',
+      title: '关于Poi Designs',
       paragraph1: 'POI团队是专业的防护产品制造商，提供 OEM 和 ODM 服务。自 2006 年以来，我们一直秉持创新与热情的理念。目前专注于摩托车（MX）和山地自行车（MTB）的防护产品，如安全夹克、护膝、护肘、护肘垫、背部保护装置、防护短裤等，以及各类防护服的配套配件，如 TPE、TPV、蜂窝材料等，以提升您的下一次冒险体验。',
     },
     advantages: {
