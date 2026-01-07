@@ -44,7 +44,7 @@ const ProductCategories = ({ lang }: CategoryGridProps) => {
       {categories.map((category, index) => (
         <a
           key={category.title}
-          href={getLocalizedPath(`products/kneeelbow-guard`, lang)}
+          href={getLocalizedPath(`products/apparel`, lang)}
           className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer animate-scale-in block"
           style={{ animationDelay: `${index * 0.1}s` }}
         >

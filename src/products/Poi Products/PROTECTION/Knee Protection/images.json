@@ -1,0 +1,18 @@
+{
+  "name": "Knee Protection",
+  "sort": 3.7,
+  "productImages": [
+    {
+      "name": "PK-103",
+      "src": "Poi Products/PROTECTION/Knee Protection/PK-103.png"
+    },
+    {
+      "name": "PK-105",
+      "src": "Poi Products/PROTECTION/Knee Protection/PK-105.png"
+    },
+    {
+      "name": "PK-109",
+      "src": "Poi Products/PROTECTION/Knee Protection/PK-109.png"
+    }
+  ]
+}

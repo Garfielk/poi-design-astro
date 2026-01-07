@@ -9,6 +9,7 @@ type CategoryTreeNode = {
   name: string;
   isSub?: boolean;
   children: Record<string, CategoryTreeNode> | null;
+  sort?: number;
 };
 
 export interface ProductItem {
@@ -41,73 +42,28 @@ interface SidebarProps {
 
 const PRIMARY_CATEGORY_ORDER = ["poi-products", "partner-brands"] as const;
 
-// 为 poi-products 定义二级菜单排序
-const POI_PRODUCTS_SECONDARY_ORDER = [
-  "apparel",
-  "apparel-jacket",
-  "apparel-pants",
-  "body-armor",
-  "kneeelbow-guard",
-  "pu-protectors",
-] as const;
-
-// 为 partner-brands 定义二级菜单排序
-const PARTNER_BRANDS_SECONDARY_ORDER = [
-  "chestback",
-  "kneeelbow",
-  "jacket",
-  "pantsshort",
-  "other",
-] as const;
-
 const getOrderedChildEntries = (
   children: Record<string, CategoryTreeNode> | null,
-  parentKey: string,
   lang: Language,
 ): Array<[string, CategoryTreeNode]> => {
   if (!children) {
     return [];
   }
 
-  const normalizedParentKey = parentKey.toLowerCase();
-  let orderArray: readonly string[] = [];
-
-  if (normalizedParentKey === "poi-products") {
-    orderArray = POI_PRODUCTS_SECONDARY_ORDER;
-  } else if (normalizedParentKey === "partner-brands") {
-    orderArray = PARTNER_BRANDS_SECONDARY_ORDER;
-  }
-
-  const orderMap = new Map<string, number>(
-    orderArray.map((category, index) => [category.toLowerCase(), index]),
-  );
-
   const collator = new Intl.Collator(lang === "zh-CN" ? "zh-CN" : "en", {
     sensitivity: "base",
     usage: "sort",
   });
 
-  console.log(children);
+  return Object.entries(children).sort(([, nodeA], [, nodeB]) => {
+    const sortA = nodeA.sort ?? Infinity;
+    const sortB = nodeB.sort ?? Infinity;
 
-  return Object.entries(children).sort(([keyA], [keyB]) => {
-    const normalizedA = keyA.toLowerCase();
-    const normalizedB = keyB.toLowerCase();
-    const orderA = orderMap.get(normalizedA);
-    const orderB = orderMap.get(normalizedB);
-
-    if (orderA !== undefined && orderB !== undefined) {
-      return orderA - orderB;
+    if (sortA !== sortB) {
+      return sortA - sortB;
     }
 
-    if (orderA !== undefined) {
-      return -1;
-    }
-
-    if (orderB !== undefined) {
-      return 1;
-    }
-
-    return collator.compare(keyA, keyB);
+    return collator.compare(nodeA.name, nodeB.name);
   });
 };
 
@@ -236,7 +192,7 @@ const Sidebar = ({
 
           <ul className="space-y-1">
             {parentEntries.map(([parentKey, node]) => {
-              const childEntries = getOrderedChildEntries(node.children, parentKey, lang);
+              const childEntries = getOrderedChildEntries(node.children, lang);
               const hasChildren = childEntries.length > 0;
               const isExpanded = openParentKey === parentKey;
               const isParentActive =
@@ -244,7 +200,7 @@ const Sidebar = ({
 
               const parentClasses = isParentActive
                 ? "bg-primary/10 text-primary font-medium"
-                : "text-foreground hover:bg-muted";
+                : "text-foreground hover:bg-muted font-medium";
 
               if (!hasChildren) {
                 const targetHref = getLocalizedPath(`/products/${encodeURIComponent(parentKey)}`, lang);
@@ -252,7 +208,7 @@ const Sidebar = ({
                   <li key={parentKey}>
                     <a
                       href={targetHref}
-                      className={`flex items-center justify-between px-4 py-2.5 rounded-lg transition-all duration-200 ${parentClasses}`}
+                      className={`flex items-center justify-between px-4 py-2.5 rounded-lg transition-colors ${parentClasses}`}
                       onClick={onClose}
                     >
                       <span>{node.name || parentKey}</span>
@@ -269,7 +225,7 @@ const Sidebar = ({
                   >
                     <CollapsibleTrigger className="w-full group">
                       <div
-                        className={`flex items-center justify-between px-4 py-2.5 rounded-lg transition-all duration-200 ${parentClasses}`}
+                        className={`flex items-center justify-between px-4 py-2.5 rounded-lg transition-colors ${parentClasses}`}
                       >
                         <span>{node.name || parentKey}</span>
                         <ChevronDown
@@ -292,10 +248,12 @@ const Sidebar = ({
                             <li key={childKey} className={childNode.isSub ? 'ml-4' : ''}>
                               <a
                                 href={childHref}
-                                className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
+                                className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
                                   isChildActive
-                                    ? "bg-primary text-primary-foreground font-medium shadow-sm"
-                                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                                    ? "bg-primary text-primary-foreground font-medium"
+                                    : childNode.isSub
+                                    ? "text-muted-foreground/70 hover:bg-muted hover:text-foreground font-medium"
+                                    : "text-muted-foreground hover:bg-muted hover:text-foreground font-medium"
                                 }`}
                                 onClick={onClose}
                               >

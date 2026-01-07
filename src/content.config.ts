@@ -22,6 +22,7 @@ const postCN = defineCollection({
 
 const productImageSchema = z.object({
   name: z.string(),
+  sort: z.number().optional(),
   productImages: z.array(z.object({
     name: z.string(),
     src: z.string(),

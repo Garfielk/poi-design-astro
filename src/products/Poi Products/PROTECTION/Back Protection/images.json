@@ -1,0 +1,14 @@
+{
+  "name": "Back Protection",
+  "sort": 3.9,
+  "productImages": [
+    {
+      "name": "PB-101",
+      "src": "Poi Products/PROTECTION/Back Protection/PB-101.png"
+    },
+    {
+      "name": "PB-102",
+      "src": "Poi Products/PROTECTION/Back Protection/PB-102.png"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Elbow Protection",
+  "sort": 3.8,
+  "productImages": [
+    {
+      "name": "PE-101",
+      "src": "Poi Products/PROTECTION/Elbow Protection/PE-101.jpg"
+    },
+    {
+      "name": "PE-104",
+      "src": "Poi Products/PROTECTION/Elbow Protection/PE-104.jpg"
+    },
+    {
+      "name": "PE-106",
+      "src": "Poi Products/PROTECTION/Elbow Protection/PE-106.png"
+    }
+  ]
+}

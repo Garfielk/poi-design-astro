@@ -1,0 +1,50 @@
+{
+  "name": "PU&TPE PROTECTION",
+  "sort": 6,
+  "productImages": [
+    {
+      "name": "Neck Guard",
+      "src": "Poi Products/PU&TPE PROTECTION/Neck Guard.jpg"
+    },
+    {
+      "name": "PN001",
+      "src": "Poi Products/PU&TPE PROTECTION/PN001.png"
+    },
+    {
+      "name": "PN003",
+      "src": "Poi Products/PU&TPE PROTECTION/PN003.png"
+    },
+    {
+      "name": "PN006",
+      "src": "Poi Products/PU&TPE PROTECTION/PN006.jpg"
+    },
+    {
+      "name": "PN007",
+      "src": "Poi Products/PU&TPE PROTECTION/PN007.png"
+    },
+    {
+      "name": "PN008",
+      "src": "Poi Products/PU&TPE PROTECTION/PN008.jpg"
+    },
+    {
+      "name": "PN009_12l6",
+      "src": "Poi Products/PU&TPE PROTECTION/PN009_12l6.png"
+    },
+    {
+      "name": "SUV-B2",
+      "src": "Poi Products/PU&TPE PROTECTION/SUV-B2.jpg"
+    },
+    {
+      "name": "SUV-C2",
+      "src": "Poi Products/PU&TPE PROTECTION/SUV-C2.jpg"
+    },
+    {
+      "name": "SUV-J1",
+      "src": "Poi Products/PU&TPE PROTECTION/SUV-J1.jpg"
+    },
+    {
+      "name": "SUV-J2",
+      "src": "Poi Products/PU&TPE PROTECTION/SUV-J2.jpg"
+    }
+  ]
+}

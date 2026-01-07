@@ -1,0 +1,14 @@
+{
+  "name": "Knee Guard",
+  "sort": 3,
+  "productImages": [
+    {
+      "name": "Knee Guard 01",
+      "src": "Partner Brands/Knee Guard/Knee Guard 01.png"
+    },
+    {
+      "name": "Knee Guard 02",
+      "src": "Partner Brands/Knee Guard/Knee Guard 02.png"
+    }
+  ]
+}

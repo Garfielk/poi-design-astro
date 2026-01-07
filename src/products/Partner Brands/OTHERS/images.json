@@ -1,0 +1,30 @@
+{
+  "name": "OTHERS",
+  "sort": 4,
+  "productImages": [
+    {
+      "name": "Fishing Belt 01",
+      "src": "Partner Brands/OTHERS/Fishing Belt 01.png"
+    },
+    {
+      "name": "Fishing Belt 02",
+      "src": "Partner Brands/OTHERS/Fishing Belt 02.png"
+    },
+    {
+      "name": "Neck Brace",
+      "src": "Partner Brands/OTHERS/Neck Brace.png"
+    },
+    {
+      "name": "O5",
+      "src": "Partner Brands/OTHERS/O5.png"
+    },
+    {
+      "name": "O6",
+      "src": "Partner Brands/OTHERS/O6.png"
+    },
+    {
+      "name": "Shoulder Harness",
+      "src": "Partner Brands/OTHERS/Shoulder Harness.png"
+    }
+  ]
+}

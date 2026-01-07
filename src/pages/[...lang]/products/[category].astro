@@ -11,10 +11,14 @@ type CategoryItem = {
   name: string;
   isSub?: boolean;
   children: Record<string, CategoryItem> | null;
+  sort?: number;
 };
 
 export async function getStaticPaths() {
   const productImageCollections = await getCollection<'productImages'>('productImages');
+
+
+  console.log(productImageCollections);
 
   // 从图片路径中提取分类（目录结构）
   const categorySet = new Set<string>();
@@ -33,7 +37,7 @@ export async function getStaticPaths() {
     const category = pathParts[0];
     const subPathParts = pathParts.slice(1, -1);
 
-    const {name, productImages} = entry.data
+    const {name, productImages, sort} = entry.data
 
     let subcategory = ''
     let midcategory = ''
@@ -54,7 +58,8 @@ export async function getStaticPaths() {
       id: subcategory,
       name: name,
       isSub,
-      children: null
+      children: null,
+      sort
     };
 
     categorySet.add(subcategory);

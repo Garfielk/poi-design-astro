@@ -1,0 +1,22 @@
+{
+  "name": "Chest Protection",
+  "sort": 3.6,
+  "productImages": [
+    {
+      "name": "PJ-101",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-101.png"
+    },
+    {
+      "name": "PJ-102",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-102.jpg"
+    },
+    {
+      "name": "PJ-103",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-103.png"
+    },
+    {
+      "name": "PJ-104",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-104.jpg"
+    }
+  ]
+}

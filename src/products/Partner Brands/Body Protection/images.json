@@ -1,0 +1,46 @@
+{
+  "name": "Body Protection",
+  "sort": 0,
+  "productImages": [
+    {
+      "name": "Impact Shorts",
+      "src": "Partner Brands/Body Protection/Impact Shorts.png"
+    },
+    {
+      "name": "Performance Jacket",
+      "src": "Partner Brands/Body Protection/Performance Jacket.png"
+    },
+    {
+      "name": "Performance Satety Jacket",
+      "src": "Partner Brands/Body Protection/Performance Satety Jacket.png"
+    },
+    {
+      "name": "Proective Vest",
+      "src": "Partner Brands/Body Protection/Proective Vest.png"
+    },
+    {
+      "name": "Protective Jacket Long Sleeve",
+      "src": "Partner Brands/Body Protection/Protective Jacket Long Sleeve.png"
+    },
+    {
+      "name": "Protective Jacket",
+      "src": "Partner Brands/Body Protection/Protective Jacket.png"
+    },
+    {
+      "name": "Protective Shirt Short Sleeve",
+      "src": "Partner Brands/Body Protection/Protective Shirt Short Sleeve.png"
+    },
+    {
+      "name": "Protective Short",
+      "src": "Partner Brands/Body Protection/Protective Short.png"
+    },
+    {
+      "name": "Riding Short 01",
+      "src": "Partner Brands/Body Protection/Riding Short 01.png"
+    },
+    {
+      "name": "Riding Short 02",
+      "src": "Partner Brands/Body Protection/Riding Short 02.png"
+    }
+  ]
+}

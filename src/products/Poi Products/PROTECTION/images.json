@@ -1,0 +1,74 @@
+{
+  "name": "PROTECTION",
+  "sort": 3.5,
+  "productImages": [
+    {
+      "name": "PJ-101",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-101.png"
+    },
+    {
+      "name": "PJ-102",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-102.jpg"
+    },
+    {
+      "name": "PJ-103",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-103.png"
+    },
+    {
+      "name": "PJ-104",
+      "src": "Poi Products/PROTECTION/Chest Protection/PJ-104.jpg"
+    },
+    {
+      "name": "PK-103",
+      "src": "Poi Products/PROTECTION/Knee Protection/PK-103.png"
+    },
+    {
+      "name": "PK-105",
+      "src": "Poi Products/PROTECTION/Knee Protection/PK-105.png"
+    },
+    {
+      "name": "PK-109",
+      "src": "Poi Products/PROTECTION/Knee Protection/PK-109.png"
+    },
+    {
+      "name": "PE-101",
+      "src": "Poi Products/PROTECTION/Elbow Protection/PE-101.jpg"
+    },
+    {
+      "name": "PE-104",
+      "src": "Poi Products/PROTECTION/Elbow Protection/PE-104.jpg"
+    },
+    {
+      "name": "PE-106",
+      "src": "Poi Products/PROTECTION/Elbow Protection/PE-106.png"
+    },
+    {
+      "name": "PB-101",
+      "src": "Poi Products/PROTECTION/Back Protection/PB-101.png"
+    },
+    {
+      "name": "PB-102",
+      "src": "Poi Products/PROTECTION/Back Protection/PB-102.png"
+    },
+    {
+      "name": "BP-101",
+      "src": "Poi Products/PROTECTION/Body Protection/BP-101.png"
+    },
+    {
+      "name": "BP-105",
+      "src": "Poi Products/PROTECTION/Body Protection/BP-105.png"
+    },
+    {
+      "name": "BP-106",
+      "src": "Poi Products/PROTECTION/Body Protection/BP-106.png"
+    },
+    {
+      "name": "BPJ-101",
+      "src": "Poi Products/PROTECTION/Body Protection/BPJ-101.png"
+    },
+    {
+      "name": "BPJ-102",
+      "src": "Poi Products/PROTECTION/Body Protection/BPJ-102.png"
+    }
+  ]
+}
