@@ -7,6 +7,7 @@ import { getLocalizedPath, useTranslations } from "@/i18n/utils.ts";
 type CategoryTreeNode = {
   id: string;
   name: string;
+  isSub?: boolean;
   children: Record<string, CategoryTreeNode> | null;
 };
 
@@ -42,6 +43,9 @@ const PRIMARY_CATEGORY_ORDER = ["poi-products", "partner-brands"] as const;
 
 // 为 poi-products 定义二级菜单排序
 const POI_PRODUCTS_SECONDARY_ORDER = [
+  "apparel",
+  "apparel-jacket",
+  "apparel-pants",
   "body-armor",
   "kneeelbow-guard",
   "pu-protectors",
@@ -285,7 +289,7 @@ const Sidebar = ({
                           );
 
                           return (
-                            <li key={childKey}>
+                            <li key={childKey} className={childNode.isSub ? 'ml-4' : ''}>
                               <a
                                 href={childHref}
                                 className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
