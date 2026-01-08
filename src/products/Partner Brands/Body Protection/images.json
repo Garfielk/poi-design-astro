@@ -3,10 +3,6 @@
   "sort": 0,
   "productImages": [
     {
-      "name": "Impact Shorts",
-      "src": "Partner Brands/Body Protection/Impact Shorts.png"
-    },
-    {
       "name": "Performance Jacket",
       "src": "Partner Brands/Body Protection/Performance Jacket.png"
     },
@@ -29,6 +25,10 @@
     {
       "name": "Protective Shirt Short Sleeve",
       "src": "Partner Brands/Body Protection/Protective Shirt Short Sleeve.png"
+    },
+    {
+      "name": "Impact Shorts",
+      "src": "Partner Brands/Body Protection/Impact Shorts.png"
     },
     {
       "name": "Protective Short",

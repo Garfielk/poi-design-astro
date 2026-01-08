@@ -1,7 +1,15 @@
 {
   "name": "Body Protection",
-  "sort": 4.0,
+  "sort": 1.1,
   "productImages": [
+    {
+      "name": "BPJ-101",
+      "src": "Poi Products/PROTECTION/Body Protection/BPJ-101.png"
+    },
+    {
+      "name": "BPJ-102",
+      "src": "Poi Products/PROTECTION/Body Protection/BPJ-102.png"
+    },
     {
       "name": "BP-101",
       "src": "Poi Products/PROTECTION/Body Protection/BP-101.png"
@@ -13,14 +21,6 @@
     {
       "name": "BP-106",
       "src": "Poi Products/PROTECTION/Body Protection/BP-106.png"
-    },
-    {
-      "name": "BPJ-101",
-      "src": "Poi Products/PROTECTION/Body Protection/BPJ-101.png"
-    },
-    {
-      "name": "BPJ-102",
-      "src": "Poi Products/PROTECTION/Body Protection/BPJ-102.png"
     }
   ]
 }

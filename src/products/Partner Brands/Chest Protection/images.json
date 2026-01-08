@@ -3,6 +3,14 @@
   "sort": 1,
   "productImages": [
     {
+      "name": "Roost Guard (Long Version)",
+      "src": "Partner Brands/Chest Protection/Roost Guard (Long Version).png"
+    },
+    {
+      "name": "Roost Guard (Short Version)",
+      "src": "Partner Brands/Chest Protection/Roost Guard (Short Version).png"
+    },
+    {
       "name": "Transparent Chest Protector",
       "src": "Partner Brands/Chest Protection/Transparent Chest Protector.png"
     }

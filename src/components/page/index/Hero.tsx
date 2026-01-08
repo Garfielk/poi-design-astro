@@ -27,7 +27,7 @@ const Hero = memo(({ lang }: HeroProps) => {
   const carouselImages = [
     { src: banner1.src, alt: t.home.hero.imageAlt.banner1, className: 'object-contain' },
     { src: banner2.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
-    { src: banner3.src, alt: t.home.hero.imageAlt.banner2, className: 'object-contain' },
+    { src: banner3.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
     { src: banner4.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
     { src: banner5.src, alt: t.home.hero.imageAlt.banner2, className: 'object-cover' },
   ];
@@ -118,7 +118,7 @@ const Hero = memo(({ lang }: HeroProps) => {
                       console.log('click')
                       api?.scrollTo(index)
                     }}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 transition-all duration-300 ${
                       index === current
                         ? "bg-accent w-8"
                         : "bg-muted-foreground/50 hover:bg-muted-foreground"
