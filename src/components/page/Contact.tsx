@@ -27,18 +27,10 @@ const teamMembers = [
   {
     id: 3,
     name: "Ella Guan",
-    role: "President",
+    role: "General Manager",
     mobile: '+86-15020036235',
     email: 'ella@poidesigns.com',
     image: Ella.src,
-  },
-  {
-    id: 3,
-    name: "Susan Pan",
-    role: "Sales Manager",
-    mobile: '+86-13361232855',
-    email: 'susan@poidesigns.com',
-    image: Susan.src,
   },
   {
     id: 3,
@@ -187,7 +179,7 @@ const Contact = ({lang}: Props) => {
             {/*<div className="text-center mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>*/}
             {/*  <h3 className="text-2xl font-bold text-primary">{t.contact.team.members}</h3>*/}
             {/*</div>*/}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 max-w-2xl mx-auto">
               {teamMembers.map((member, index) => (
                 <div
                   key={member.id}
